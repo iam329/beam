@@ -1,7 +1,7 @@
 MusicblogApp::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/about"
-  get "static_pages/help"
+  root to: 'static_pages#home'
+  match '/about', to:'static_pages#about', via: 'GET'
+  match 'help', to: 'static_pages#help', via: 'GET'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
