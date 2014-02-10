@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
 	def show
+		if params[:name]
+			@user=User.where(name:params[:name])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def new
