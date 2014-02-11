@@ -108,14 +108,26 @@ p {
 
 /* SIGNUP */
 
-.signup {
-  background-image: url(<%= asset_path('type.jpg') %>);
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.signup-in {
   
+  
+  #signin {
+    background-image: url(<%= asset_path('mic.jpg') %>);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  #signup {
+    background-image: url(<%= asset_path('type.jpg') %>);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
 
   h1 {
     padding: 90px 0 15px 0; 
@@ -129,6 +141,7 @@ p {
     color: #fafafa;
     font-size: 2em;
     font-weight: 100;
+    line-height: 100%;
   }
 
   .form-divider{
@@ -166,11 +179,25 @@ p {
 
 /* PROFILE */
 
-.hero-unit {
+.profile-hero {
   background-image: url(<%= asset_path('needle.jpg') %>);
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 520px;
+
+  nav {
+      padding: 10px;
+
+      a {
+        margin-right: 5px;
+        color: #d7dee3;
+        &:hover {
+          color: white;
+          background: none;
+        }
+      }
+  }
+  
 
   h1 {
     padding: 70px 0 0 0;

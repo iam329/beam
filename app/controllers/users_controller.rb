@@ -16,7 +16,9 @@ class UsersController < ApplicationController
 		@user=User.new(user_params)
 
 		if @user.save
-			redirect_to root_path
+			sign_in @user
+			flash[:success] = "Welcome to TapeDeckHero! What's your track of the day?"
+			redirect_to @user
 		else
 		 	render 'new'
 		end	

@@ -1,40 +1,44 @@
 <% provide(:title, 'Signup') %>
-<div class="signup">
-	
-    <nav>
-    	<ul class="nav nav-pills pull-left">
-        	<li><%= link_to "Home", root_path %></li> 	
-         </ul>
+<div class="signup-in">
+	<div id="signup">
+	    <nav>
+	    	<ul class="nav nav-pills pull-left">
+	        	<li><%= link_to "Home", root_path %></li> 	
+	         </ul>
 
-   		 
-     </nav>
-  
-	<div class="center">
+	         <ul class="nav nav-pills pull-right">
+	        	<li><%= link_to "Home", root_path %></li> 	
+	         </ul>
+	   		 
+	     </nav>
+	  
+		<div class="center">
 
-				<h1>Signup</h1>
+			<h1>Signup</h1>
 
 				<%= form_for (@user) do |f| %>
 
 					<%= render 'shared/error_messages' %>
-						
+							
 						<div class="form-divider">
-							<%= f.text_field :name, value: "Username" %>
+							<%= f.text_field :name, placeholder: "Username" %>
 						</div>
-						
+							
 						<div class="form-divider">	
-							<%= f.text_field :email, value: "Email" %>
+							<%= f.text_field :email, placeholder: "Email" %>
 						</div>
-						
+							
 						<div class="form-divider">
-							<%= f.text_field :password, value: "Password" %>
+							<%= f.password_field :password, placeholder: "Password" %>
 						</div>
-						
+							
 						<div class="form-divider">
-							<%= f.text_field :password_confirmation, value: "Confirm Password" %>
+							<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
 						</div>		
 
 						<%= f.submit "Let's Go!" %>		
 
-				<% end %>	
-	</div>	
+					<% end %>	
+		</div>
+	</div>		
 </div>

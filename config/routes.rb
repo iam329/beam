@@ -1,9 +1,14 @@
 MusicblogApp::Application.routes.draw do
+  
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
   root to: 'static_pages#home'
   match '/about', to:'static_pages#about', via: 'GET'
   match 'help', to: 'static_pages#help', via: 'GET'
 
-  resources :users
+  match '/signin', to: 'sessions#new', via: 'GET'
+  match '/logout', to: 'sessions#destroy', via: 'DELETE'
 
   match '/signup', to: 'users#new', via: 'GET'
   match ':name', to: 'users#show', via: 'GET'

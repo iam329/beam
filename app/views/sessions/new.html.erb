@@ -1,0 +1,32 @@
+<% provide(:title, 'Sign In') %>
+
+<div class="signup-in">
+	<div id="signin">
+	    <nav>
+	    	<ul class="nav nav-pills pull-left">
+	        	<li><%= link_to "Home", root_path %></li> 	
+	         </ul>
+
+	   		 
+	     </nav>
+	  
+		<div class="center">
+
+			<h1>Sign In</h1>
+
+				<%= form_for(:session, url: sessions_path) do |f| %>
+							
+						<div class="form-divider">	
+							<%= f.text_field :email, placeholder: "Email" %>
+						</div>
+							
+						<div class="form-divider">
+							<%= f.password_field :password, placeholder: "Password" %>
+						</div>		
+
+						<%= f.submit "Let's Go!" %>		
+
+				<% end %>	
+		</div>	
+	</div>	
+</div>
