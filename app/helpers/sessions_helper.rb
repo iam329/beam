@@ -36,3 +36,7 @@ end
 def store_location
     session[:return_to] = request.url if request.get?
 end
+
+def signed_in_user
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+end

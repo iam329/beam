@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	has_many :posts, dependent: :destroy
+
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	#As long as there is a password_digest column in the database, this one method gives us a secure way to create and authenticate new users. 				  
