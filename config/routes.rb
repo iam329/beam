@@ -11,7 +11,7 @@ MusicblogApp::Application.routes.draw do
   match '/logout', to: 'sessions#destroy', via: 'DELETE'
 
   match '/signup', to: 'users#new', via: 'GET'
-  match ':name', to: 'users#show', via: 'GET'
+  match ':name', to: 'users#show',:via => [:get], as: 'user_show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

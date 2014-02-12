@@ -76,39 +76,9 @@ p {
   @extend .error;
 }
 
-/* HOME PAGE */
+/* USER FORMS */
 
-.hero-unit {
-  background-image: url(<%= asset_path('needle.jpg') %>);
-  background-size: cover;
-  background-position: center;
-  height: 400px;
-
-  h1 {
-  	padding: 70px 0 0 0;
-    color: white;
-  }
-
-}
-
-.feature {
-	
-  .episode {  
-    padding: 15px 0 15px 0; 
-
-    h2 {
-  	
-    }
-
-    h3 {
-    	padding: 0 0 15px 0;	
-    }
-  }  
-}
-
-/* SIGNUP */
-
-.signup-in {
+.user-forms {
   
   
   #signin {
@@ -144,7 +114,7 @@ p {
     line-height: 100%;
   }
 
-  .form-divider{
+  .form-divider {
     padding: 10px 0 10px 0;
   }
 
@@ -162,18 +132,74 @@ p {
     }
 
   }
+}
 
-  nav {
-      padding: 10px;
+/* NAV */
+
+.nav-pills {
+  padding: 10px;
+
+  &.nav > li > a:hover {
+    background: transparent;
+  }
+  a {
+    margin-right: 5px;
+    color: #edeaea;
+    &:focus {
+      color: white;
+      background: none;
+      }
+    }
+
+    .dropdown-menu {
+      min-width:100%;
+      background: none;
+      color:white;
+      border:none;
+      box-shadow: none;
 
       a {
-        color: #edeaea;
-        &:hover {
-          color: white;
-          background: none;
-        }
+      margin-right: 5px;
+      color: #edeaea;
+      &:hover {
+        color: white;
+        background: none;
       }
+    }
   }
+}
+
+/* HOME PAGE */
+
+.home-hero {
+  background-image: url(<%= asset_path('needle.jpg') %>);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 520px;
+  position: absolute;
+
+
+  h1 {
+  	padding: 130px 0 0 0;
+    color: white;
+  }
+
+}
+
+.feature {
+	
+  .episode {  
+    padding: 15px 0 15px 0; 
+
+    h2 {
+  	
+    }
+
+    h3 {
+    	padding: 0 0 15px 0;	
+    }
+  }  
 }
 
 /* PROFILE */
@@ -183,28 +209,6 @@ p {
   background-size: cover;
   background-position: center;
   height: 520px;
-
-  nav {
-      padding: 10px;
-
-      a {
-        margin-right: 5px;
-        color: #edeaea;
-        &:hover {
-          color: white;
-          background: none;
-        }
-      }
-
-      .dropdown-menu {
-        min-width:100%;
-        background: none;
-        color:white;
-        border:none;
-        box-shadow: none;
-      }
-  }
-  
 
   h1 {
     padding: 70px 0 0 0;
