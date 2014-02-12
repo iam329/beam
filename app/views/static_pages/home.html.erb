@@ -22,8 +22,18 @@
               </ul>
             </li>	
 		    </ul>
-	   	<% end %>	 
+	 <% else %>
 
+	 	<ul class="nav nav-pills pull-right">
+	       	<li><%= link_to "Login", signin_path %></li> 	
+	    </ul>
+
+	    <ul class="nav nav-pills pull-right">
+	       	<li><%= link_to "Signup", signup_path %></li> 	
+	    </ul>
+
+	 <% end %>	 
+	    
 	</nav>
 
 	<h1>TapeDeckHero.</h1>
