@@ -1,7 +1,7 @@
-<% provide(:title, 'Signup') %>
+<% provide(:title, 'New Episode') %>
 
 <div class="user-forms">
-	<div id="signup">
+	<div id="episode">
 	    <nav>
 	    	<ul class="nav nav-pills pull-left">
 	        	<li><%= link_to "Home", root_path %></li> 	
@@ -11,31 +11,31 @@
 	  
 		<div class="center">
 
-			<h1>Signup</h1>
+			<h1>New Episode</h1>
 
-				<%= form_for (@user) do |f| %>
+				<%= form_for(@post) do |f| %>
 
 					<%= render 'shared/error_messages', object: f.object %>
 							
 						<div class="form-divider">
-							<%= f.text_field :name, placeholder: "Username" %>
+							<%= f.text_field :title, placeholder: "Track Title" %>
 						</div>
 							
 						<div class="form-divider">	
-							<%= f.text_field :email, placeholder: "Email" %>
+							<%= f.text_field :artist, placeholder: "Artist" %>
 						</div>
 							
 						<div class="form-divider">
-							<%= f.password_field :password, placeholder: "Password" %>
+							<%= f.text_field :youtube, placeholder: "YouTube" %>
 						</div>
 							
 						<div class="form-divider">
-							<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-						</div>		
+							<%= f.text_field :soundcloud, placeholder: "Soundcloud" %>
+						</div>
 
 						<%= f.submit "Let's Go!" %>		
 
 					<% end %>	
 		</div>
 	</div>		
-</div>
+</div

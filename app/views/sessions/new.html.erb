@@ -2,6 +2,11 @@
 
 <div class="user-forms">
 	<div id="signin">
+
+		<% flash.each do |key, value| %>
+        	<div class="alert alert-<%= key %>"><%= value %></div>
+      	<% end %>	
+
 	    <nav>
 	    	<ul class="nav nav-pills pull-left">
 	        	<li><%= link_to "Home", root_path %></li> 	
@@ -9,13 +14,13 @@
 
 	   		 
 	     </nav>
-	  
+
 		<div class="center">
 
 			<h1>Sign In</h1>
 
 				<%= form_for(:session, url: sessions_path) do |f| %>
-							
+
 						<div class="form-divider">	
 							<%= f.text_field :email, placeholder: "Email" %>
 						</div>

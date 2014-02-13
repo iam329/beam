@@ -26,17 +26,18 @@ module SessionsHelper
     remember_token = User.encrypt(cookies[:remember_token])
     @current_user ||= User.find_by(remember_token: remember_token)
   end
-end
 
-def redirect_back_or(default)
-    redirect_to(session[:return_to] || default)
-    session.delete(:return_to)
-end
+  def redirect_back_or(default)
+      redirect_to(session[:return_to] || default)
+      session.delete(:return_to)
+  end
 
-def store_location
-    session[:return_to] = request.url if request.get?
-end
+  def store_location
+      session[:return_to] = request.url if request.get?
+  end
 
-def signed_in_user
-    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  def signed_in_user
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
+
 end

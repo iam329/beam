@@ -1,6 +1,9 @@
 MusicblogApp::Application.routes.draw do
   
   resources :users
+  resources :posts, only: [:new, :create, :destroy]
+  
+
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
@@ -11,7 +14,7 @@ MusicblogApp::Application.routes.draw do
   match '/logout', to: 'sessions#destroy', via: 'DELETE'
 
   match '/signup', to: 'users#new', via: 'GET'
-  match ':name', to: 'users#show',:via => [:get], as: 'user_show'
+  get '/:name', to: 'users#show', as: :profile, :constraints => {:name => /[A-Za-z0-9\.]+?/, :format => /html/}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

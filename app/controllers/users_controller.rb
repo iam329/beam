@@ -3,15 +3,18 @@ class UsersController < ApplicationController
 	before_action :correct_user, only:[:edit, :update]
 
 	def show
-		if params[:name]
-			@user=User.where(name:params[:name])
-		else
-			redirect_to root_path
-		end
-	end
+ 		@user = User.find_by_name(params[:name])
+ 		
+ 		if @user
+ 			@posts = @user.posts
+ 			render 'show'
+ 		else
+ 			redirect_to root_path
+ 		end
+ 	end
 
 	def new
-	  	@user=User.new		
+	  	@user = User.new		
 	end
 
 	def create
@@ -55,10 +58,9 @@ class UsersController < ApplicationController
 	end
 
 	def correct_user
-		@user = User.find(params[:id])
-		unless current_user == @user
-			redirect_to root_path
-		end
-	end 
-
+    	@user = User.find(params[:id])
+    	unless current_user == @user
+      	redirect_to root_path
+    	end
+  	end	
 end

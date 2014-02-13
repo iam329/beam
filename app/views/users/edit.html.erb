@@ -14,7 +14,7 @@
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu pull-right">
-                <li><%= link_to "Profile", user_show_path(current_user.name) %></li>
+                <li><%= link_to "Profile", profile_path(current_user.name) %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li>
                   <%= link_to "Log Out", logout_path, method: "delete" %>

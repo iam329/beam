@@ -15,7 +15,7 @@
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu pull-right">
-                <li><%= link_to "Profile", user_show_path(current_user.name) %></li>
+                <li><%= link_to "Profile", profile_path(current_user.name) %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li>
                   <%= link_to "Log Out", logout_path, method: "delete" %>
@@ -26,30 +26,27 @@
 	   	<% end %>	 
 	</nav>
 
+	<%= link_to "New Episode", new_post_path(current_user) %>
+
 </div>
 
 <div class="container feature">
+	<ul>
+		<% @posts.each do |p|  %>
 
-	<div class="episode">
+		<li>
+			<div class="episode">
 
-		<h2>Episode #2</h2> 
+				<h2>Episode #</h2> 
 
-		<h3>"Did You Hear the Rain?" by <%= link_to "George Ezra", "https://twitter.com/george_ezra", :target => '_blank' %></h3>
+				<h3>"Did You Hear the Rain?" by <%= link_to "George Ezra", "https://twitter.com/george_ezra", :target => '_blank' %></h3>
 
-		<iframe class="youtube-player" type="text/html" width="940" height="578" src="http://www.youtube.com/embed/hbfHe3nd_Lo?autoplay=0" allowfullscreen frameborder="0">
-		</iframe>
+				<iframe class="youtube-player" type="text/html" width="940" height="578" src="http://www.youtube.com/embed/hbfHe3nd_Lo?autoplay=0" allowfullscreen frameborder="0">
+				</iframe>
 
-	</div>
-
-	<div class="episode">
-
-		<h2>Episode #1</h2> 
-
-		<h3>"Long Road" by <%= link_to "Jake Isaac", "https://twitter.com/iamjakeisaac", :target => '_blank' %></h3>
-
-		<iframe class="youtube-player" type="text/html" width="940" height="578" src="http://www.youtube.com/embed/HllUW8G7VFI" allowfullscreen frameborder="0">
-		</iframe>
-
-	</div>
-
+			</div>
+		</li>
+			
+		<% end %>
+	</ul>
 </div>
