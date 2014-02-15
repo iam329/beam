@@ -26,7 +26,19 @@
 	   	<% end %>	 
 	</nav>
 
-	<%= link_to "New Episode", new_post_path(current_user) %>
+	<div>
+		<%= link_to "New Episode", new_post_path(current_user) %>
+	</div>
+	
+	<% unless current_user == @user %>
+  		<div class="follow-button">
+  			<% if current_user.following?(@user) %>
+    			<%= render 'unfollow' %>
+  			<% else %>
+    			<%= render 'follow' %>
+  			<% end %>
+  		</div>
+	<% end %>
 
 </div>
 

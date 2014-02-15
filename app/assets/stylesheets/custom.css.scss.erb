@@ -80,7 +80,6 @@ p {
 
 .user-forms {
   
-  
   #signin {
     background-image: url(<%= asset_path('mic.jpg') %>);
     background-size: cover;
@@ -245,6 +244,26 @@ p {
         padding: 0 0 15px 0;  
       }
     }  
+  }
+}
+
+/* FOLLOW BUTTON */
+
+.follow-button {
+  form input[type=submit] {
+    background-color:rgba(0, 0, 0, 0.1);
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    height: 50px;
+    width: 200px;
+    color: #eaeaea;
+    
+    &:hover {
+     color: white;
+     background: #24c0ab;
+     border: 1px solid #24c0ab;
+    }
+
   }
 }
 
