@@ -38,7 +38,7 @@ class UsersController < ApplicationController
    	 	
    	 	if @user.update_attributes(user_params)
       		flash[:success] = "Profile Updated"
-      		redirect_to user_show_path(@user.name)
+      		redirect_to profile_path(@user.name)
     	else
       		render 'edit'
     	end
@@ -55,7 +55,8 @@ class UsersController < ApplicationController
 	  								 :bio, 
 	  								 :password,
                                      :password_confirmation,
-                                     :photo)	
+                                     :photo,
+                                     :wallpaper)	
 	end
 
 	def correct_user

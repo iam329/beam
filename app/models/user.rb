@@ -10,7 +10,27 @@ class User < ActiveRecord::Base
 	#As long as there is a password_digest column in the database, this one method gives us a secure way to create and authenticate new users. 				  
 	has_secure_password
 
-	has_attached_file :photo
+	has_attached_file :photo, 
+                    :s3_credentials => Rails.root.join("config/s3.yml"),
+                    :s3_permissions => :public_read,
+                    :path => "/users/:attachment/:id/:style.:extension",
+                    :url => ":s3_domain_url",
+                    :bucket => "s3vinnie",
+                    :storage => :s3,
+                    :s3_protocol => "http" 
+    
+    validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
+    has_attached_file :wallpaper, 
+                    :s3_credentials => Rails.root.join("config/s3.yml"),
+                    :s3_permissions => :public_read,
+                    :path => "/users/:attachment/:id/:style.:extension",
+                    :url => ":s3_domain_url",
+                    :bucket => "s3vinnie",
+                    :storage => :s3,
+                    :s3_protocol => "http"
+
+    validates_attachment_content_type :wallpaper, :content_type => /\Aimage\/.*\Z/                    
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token

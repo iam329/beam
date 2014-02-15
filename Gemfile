@@ -44,6 +44,9 @@ gem 'bootstrap-will_paginate', '0.0.9'
 # Paperclip
 gem "paperclip", "~> 3.0"
 
+# AWS
+gem 'aws-sdk', '~> 1.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
