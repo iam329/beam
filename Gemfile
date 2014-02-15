@@ -38,8 +38,11 @@ gem 'jbuilder', '1.0.2'
 # Pagination
 gem 'will_paginate', '3.0.4'
 
-#Configures will_paginate to use Bootstrap's pagination styles
+# Configures will_paginate to use Bootstrap's pagination styles
 gem 'bootstrap-will_paginate', '0.0.9'
+
+# Paperclip
+gem "paperclip", "~> 3.0"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

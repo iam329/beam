@@ -7,11 +7,13 @@ class User < ActiveRecord::Base
 	has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
 	has_many :followers, through: :reverse_relationships
 
-	before_save { self.email = email.downcase }
-	before_create :create_remember_token
-	
 	#As long as there is a password_digest column in the database, this one method gives us a secure way to create and authenticate new users. 				  
 	has_secure_password
+
+	has_attached_file :photo
+
+	before_save { self.email = email.downcase }
+	before_create :create_remember_token
 
 	validates :name, presence: true, 
 					 uniqueness: { case_sensitive: false }, 

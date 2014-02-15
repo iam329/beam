@@ -54,7 +54,8 @@ class UsersController < ApplicationController
 	  								 :email, 
 	  								 :bio, 
 	  								 :password,
-                                     :password_confirmation)	
+                                     :password_confirmation,
+                                     :photo)	
 	end
 
 	def correct_user
