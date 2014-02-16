@@ -41,7 +41,7 @@
 	<% end %>
 
 	<div>
-		<%= image_tag @user.photo.url, size: "100x100" %>
+		<%= image_tag @user.photo.url, size: "100x100", class: "img-rounded" %>
 	</div>
 
 	<div>
@@ -51,22 +51,32 @@
 </div>
 
 <div class="container feature">
-	<ul>
-		<% @posts.each do |p|  %>
+	<% if @count > 0 %>
 
-		<li>
-			<div class="episode">
+		<ul>
+			<% @posts.each_with_index do |p,i|  %>
 
-				<h2>Episode #</h2> 
+			<% ep = @count - i %>
 
-				<h3>"Did You Hear the Rain?" by <%= link_to "George Ezra", "https://twitter.com/george_ezra", :target => '_blank' %></h3>
+			<li>
+				<div class="episode">
 
-				<iframe class="youtube-player" type="text/html" width="940" height="578" src="http://www.youtube.com/embed/hbfHe3nd_Lo?autoplay=0" allowfullscreen frameborder="0">
-				</iframe>
+					<h2>Episode #<%= ep %></h2> 
 
-			</div>
-		</li>
-			
-		<% end %>
-	</ul>
+					<h3>"<%= p.title %>" by <span id="artist"><%= p.artist %></span></h3>
+
+					<% if p.yt? && i==0 %>
+						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1" %>" allowfullscreen frameborder="0">
+						</iframe>
+					<% elsif p.yt? && i>0 %>
+						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode %>" allowfullscreen frameborder="0">
+						</iframe>		
+					<% end %>	
+
+				</div>
+			</li>
+				
+			<% end %>
+		</ul>
+	<% end %>	
 </div>
