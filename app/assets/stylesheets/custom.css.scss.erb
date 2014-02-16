@@ -200,7 +200,6 @@ p {
 
   h1 {
   	padding: 160px 0 0 0;
-    color: white;
   }
 
 }
@@ -217,7 +216,7 @@ p {
     h3 {
     	padding: 0 0 15px 0;	
     }
-    
+
     #artist {
       color: #08c;
     }
@@ -227,14 +226,24 @@ p {
 /* PROFILE */
 
 .profile-hero {
-  background-image: url(<%= asset_path('needle.jpg') %>);
-  background-size: cover;
-  background-position: center;
-  height: 450px;
 
   h1 {
-    padding: 70px 0 0 0;
-    color: white;
+    padding: 15px 0 0 0;
+  }
+
+  img {
+    vertical-align: middle;
+    border: 3px solid white;
+    margin-top: 100px;
+    margin-right: -29px;
+  }
+
+  #bio {
+    padding-top: 5px;
+    p {
+      font-weight: 100;
+      color: #E5F4F5;
+    }
   }
 
 }
@@ -274,7 +283,7 @@ p {
     
     &:hover {
      color: white;
-     background: #24c0ab;
+     background-color:rgba(0, 0, 0, 0.1);
      border: 1px solid #24c0ab;
       
     }
@@ -287,3 +296,28 @@ p {
   }
 }
 
+/* UNFOLLOW BUTTON */
+
+.unfollow-button {
+  form input[type=submit] {
+    background-color: #24c0ab;
+    border: 1px solid #24c0ab;
+    border-radius: 15px;
+    height: 40px;
+    width: 180px;
+    color: #eaeaea;
+    
+    
+    &:hover {
+     color: white;
+     background: #24c0ab;
+     border: 1px solid #24c0ab;
+      
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+  }
+}

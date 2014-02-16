@@ -1,54 +1,54 @@
 <% provide(:title, @user.name) %>
-
-<div class="center profile-hero">
-	
-	<nav>
-	   	<ul class="nav nav-pills pull-left">
-	       	<li><%= link_to "Home", root_path %></li> 	
-	    </ul>
-
-
-	    <% if signed_in? %>
-		    <ul class="nav nav-pills pull-right">
-		       	 <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu pull-right">
-                <li><%= link_to "Profile", profile_path(current_user.name) %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li>
-                  <%= link_to "Log Out", logout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>	
+<div style="<%= show_user_bg %>">
+	<div class="center profile-hero">
+		
+		<nav>
+		   	<ul class="nav nav-pills pull-left">
+		       	<li><%= link_to "Home", root_path %></li> 	
 		    </ul>
-	   	<% end %>	 
-	</nav>
 
-	<div>
-		<%= link_to "New Episode", new_post_path(current_user) %>
-	</div>
-	
-	<% unless current_user == @user %>
-  		<div class="follow-button">
+
+		    <% if signed_in? %>
+			    <ul class="nav nav-pills pull-right">
+			       	 <li id="fat-menu" class="dropdown">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                Account <b class="caret"></b>
+	              </a>
+	              <ul class="dropdown-menu pull-right">
+	                <li><%= link_to "Profile", profile_path(current_user.name) %></li>
+	                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+	                <li>
+	                  <%= link_to "Log Out", logout_path, method: "delete" %>
+	                </li>
+	              </ul>
+	            </li>	
+			    </ul>
+		   	<% end %>	 
+		</nav>
+
+
+			<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+
+
+		<div id="username">
+			<h1><%= @user.name %></h1>
+		</div>
+
+		<div id="bio">
+			<p><%= @user.bio %></p>
+		</div>
+		
+		
+		<% unless current_user == @user %>
   			<% if current_user.following?(@user) %>
     			<%= render 'unfollow' %>
   			<% else %>
     			<%= render 'follow' %>
-  			<% end %>
-  		</div>
-	<% end %>
+  			<% end %>  		
+		<% end %>	
 
-	<div>
-		<%= image_tag @user.photo.url, size: "100x100", class: "img-rounded" %>
 	</div>
-
-	<div>
-		<%= image_tag @user.wallpaper.url, size: "100x100" %>
-	</div>	
-
-</div>
+</div>	
 
 <div class="container feature">
 	<% if @count > 0 %>
@@ -65,10 +65,10 @@
 
 					<h3>"<%= p.title %>" by <span id="artist"><%= p.artist %></span></h3>
 
-					<% if p.yt? && i==0 %>
+					<% if p.yt? && i==0 && current_user!=@user %>
 						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1" %>" allowfullscreen frameborder="0">
 						</iframe>
-					<% elsif p.yt? && i>0 %>
+					<% elsif p.yt? && i>=0 %>
 						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode %>" allowfullscreen frameborder="0">
 						</iframe>		
 					<% end %>	

@@ -8,4 +8,11 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def show_user_bg
+    "background:transparent url(#{@user.wallpaper});
+     background-size: cover;
+     background-position: center;
+     height: 450px;"
+  end
 end
