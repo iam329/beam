@@ -10,10 +10,9 @@ module ApplicationHelper
   end
 
   def show_user_bg
-    "background: url(#{@user.wallpaper});
+    "background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(#{@user.wallpaper});
      background-size: cover;
      background-position: center;
-     background-color:rgba(0, 0, 0, 0.2);
      height: 450px;"
   end
 end
