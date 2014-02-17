@@ -54,11 +54,10 @@
 			<% end %>	
 		</div>	
 
-		<div id="profile-stats-posts">
-
-			<a href="">
+		<div id="profile-stats-following">
+			<a href="<%= profile_path(@user.name) %>">
 			   <strong class="stat">
-			    <%= @count %>
+			     <%= @count %>
 			   </strong>
 			   Episodes
 			</a>				   
@@ -82,32 +81,5 @@
 </div>	
 
 <div class="container feature">
-	<% if @count > 0 %>
-
-		<ul>
-			<% @posts.each_with_index do |p,i|  %>
-
-			<% ep = @count - i %>
-
-			<li>
-				<div class="episode">
-
-					<h2>Episode #<%= ep %></h2> 
-
-					<h3>"<%= p.title %>" by <span id="artist"><%= p.artist %></span></h3>
-
-					<% if p.yt? && i==0 && current_user!=@user %>
-						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1" %>" allowfullscreen frameborder="0">
-						</iframe>
-					<% elsif p.yt? && i>=0 %>
-						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode %>" allowfullscreen frameborder="0">
-						</iframe>		
-					<% end %>	
-
-				</div>
-			</li>
-				
-			<% end %>
-		</ul>
-	<% end %>	
+		
 </div>

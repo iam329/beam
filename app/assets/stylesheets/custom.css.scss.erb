@@ -252,7 +252,7 @@ nav {
   }
 
   #new-episode {
-    
+
     background-color:rgba(0, 0, 0, 0.1);
     border: 1px solid #eaeaea;
     border-radius: 15px;
@@ -273,14 +273,67 @@ nav {
     }
   }
 
-  #profile-stats {
+  #profile-stats-posts {
     padding-top: 30px; 
     overflow: auto;
-    
+
     a {
       color: #b3b3b1;
       padding-right: 10px;
       display: inline-block;
+
+      &:first-child {
+        color: white;
+      }
+
+      &:hover {
+       text-decoration: none;
+       color: white;
+      }
+    }
+    
+    strong {
+      display: block;
+    }  
+  }
+
+  #profile-stats-followers {
+    padding-top: 30px; 
+    overflow: auto;
+
+    a {
+      color: #b3b3b1;
+      padding-right: 10px;
+      display: inline-block;
+
+      &:nth-child(2) {
+        color: white;
+      }
+
+      &:hover {
+       text-decoration: none;
+       color: white;
+      }
+    }
+    
+    strong {
+      display: block;
+    }  
+  }
+
+  #profile-stats-following {
+    padding-top: 30px; 
+    overflow: auto;
+
+    a {
+      color: #b3b3b1;
+      padding-right: 10px;
+      display: inline-block;
+
+      &:nth-child(3) {
+        color: white;
+      }
+
       &:hover {
        text-decoration: none;
        color: white;
