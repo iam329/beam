@@ -44,6 +44,8 @@
 
 <div class="container feature">
 
+	<% if signed_in? %>
+		
 	<ul>
 			<% @feed_items.each do |p|  %>
 
@@ -55,7 +57,7 @@
 					</div>	
 
 					<div id="profile-photo">
-						<%= image_tag p.user.photo.url, size: "60x60", class: "img-circle" %>	
+						<%= link_to image_tag(p.user.photo.url, size: "50x50", class: "img-circle"), profile_path(p.user.name) %>	
 					</div>
 						
 					<% if p.yt? %>
@@ -70,6 +72,7 @@
 			<% end %>
 		</ul>
  
+ 	<% end %>
 
 </div>
 
