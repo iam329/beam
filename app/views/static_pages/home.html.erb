@@ -50,8 +50,14 @@
 			<li>
 				<div class="episode"> 
 
-					<h3>"<%= p.title %>" by <span id="artist"><%= p.artist %></span></h3>
+					<div id="feed-info">
+						<h3>"<%= p.title %>" by <span id="artist"><%= p.artist %></span></h3>
+					</div>	
 
+					<div id="profile-photo">
+						<%= image_tag p.user.photo.url, size: "60x60", class: "img-circle" %>	
+					</div>
+						
 					<% if p.yt? %>
 						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode %>" allowfullscreen frameborder="0">
 						</iframe>
