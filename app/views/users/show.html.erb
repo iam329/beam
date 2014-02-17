@@ -1,8 +1,6 @@
 <% provide(:title, @user.name) %>
 <div style="<%= show_user_bg %>">
-	<div class="center profile-hero">
-		
-		<nav>
+	<nav>
 		   	<ul class="nav nav-pills pull-left">
 		       	<li><%= link_to "Home", root_path %></li> 	
 		    </ul>
@@ -24,11 +22,13 @@
 	            </li>	
 			    </ul>
 		   	<% end %>	 
-		</nav>
+	</nav>
+	
+	<div class="center profile-hero">	
 
-
+		<div id="profile-photo">
 			<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
-
+		</div>	
 
 		<div id="username">
 			<h1><%= @user.name %></h1>
@@ -38,15 +38,24 @@
 			<p><%= @user.bio %></p>
 		</div>
 		
-		
-		<% unless current_user == @user %>
-  			<% if current_user.following?(@user) %>
-    			<%= render 'unfollow' %>
-  			<% else %>
-    			<%= render 'follow' %>
-  			<% end %>  		
-		<% end %>	
+		<div>
+			<% if current_user == @user %>
+				<%= button_to "New Episode", new_post_path, id:"new-episode", method: "get" %>
+			<% end %>
+		</div>
 
+		<div>	
+			<% unless !signed_in? || current_user == @user %>
+	  			<% if current_user.following?(@user) %>
+	    			<%= render 'unfollow' %>
+	  			<% else %>
+	    			<%= render 'follow' %>
+	  			<% end %>  		
+			<% end %>	
+		</div>	
+
+		
+		
 	</div>
 </div>	
 

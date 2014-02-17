@@ -225,18 +225,21 @@ p {
 
 /* PROFILE */
 
+nav {
+  overflow: hidden;
+}
+
 .profile-hero {
 
   h1 {
-    padding: 15px 0 0 0;
+    padding: 10px 0 0 0;
   }
 
-  img {
-    vertical-align: middle;
-    border: 3px solid white;
-    margin-top: 100px;
-    margin-right: -29px;
-  }
+  #profile-photo {
+    img {
+      border: 3px solid white;
+    }
+  }  
 
   #bio {
     padding-top: 5px;
@@ -246,6 +249,26 @@ p {
     }
   }
 
+  #new-episode {
+    background-color:rgba(0, 0, 0, 0.1);
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    height: 40px;
+    width: 180px;
+    color: #eaeaea;
+      
+      
+    &:hover {
+     color: #24c0ab;
+     background-color:rgba(0, 0, 0, 0.1);
+     border: 1px solid #24c0ab;
+     text-decoration: none;       
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
 }
 
 .feature {
@@ -291,8 +314,6 @@ p {
     &:focus {
       outline: 0;
     }
-
-
   }
 }
 
