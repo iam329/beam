@@ -150,6 +150,7 @@ p {
 /* NAV */
 
 .nav-pills {
+
   padding: 10px;
 
   &.nav > li > a:hover {
@@ -184,6 +185,7 @@ p {
         background: none;
       }
     }
+
   }
 }
 
@@ -224,7 +226,7 @@ p {
 }
 
 /* PROFILE */
-
+  
 nav {
   overflow: hidden;
 }
@@ -242,14 +244,15 @@ nav {
   }  
 
   #bio {
-    padding-top: 5px;
+    padding-top: 10px;
     p {
       font-weight: 100;
-      color: #E5F4F5;
+      color: #b3b3b1;;
     }
   }
 
   #new-episode {
+    
     background-color:rgba(0, 0, 0, 0.1);
     border: 1px solid #eaeaea;
     border-radius: 15px;
@@ -268,6 +271,25 @@ nav {
     &:focus {
       outline: 0;
     }
+  }
+
+  #profile-stats {
+    padding-top: 30px; 
+    overflow: auto;
+    
+    a {
+      color: #b3b3b1;
+      padding-right: 10px;
+      display: inline-block;
+      &:hover {
+       text-decoration: none;
+       color: white;
+      }
+    }
+    
+    strong {
+      display: block;
+    }  
   }
 }
 
