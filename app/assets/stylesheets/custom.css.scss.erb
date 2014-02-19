@@ -8,10 +8,15 @@
 
 html {
   overflow-y: scroll;
+  height: 100%;
+  width: 100%;
 }
 
 body {
   font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  height: 100%;
+  width: 100%;
+
 }
 
 section {
@@ -49,6 +54,10 @@ footer {
 h1 {
   font-size: 4em;
   color: white;
+}
+
+h2 {
+
 }
 
 h3 {
@@ -206,6 +215,10 @@ p {
 
 .feature {
 	
+  #latest-episode {
+
+  }
+
   .episode {  
     padding: 15px 0 15px 0; 
 
@@ -243,131 +256,171 @@ nav {
   overflow: hidden;
 }
 
-.profile-hero {
+#profile-wall-wrapper {
+    min-height: 100%;
+    width: 40%;
+    float: left;
+    position: fixed;
+}
 
-  h1 {
-    padding: 10px 0 0 0;
+.profile-wall {
+
+  
+  .fixed {
+    position: fixed;
+    top: 0;
   }
 
-  #profile-photo {
-    img {
-      border: 3px solid white;
+  .profile-hero {
+
+    h1 {
+      font-size: 3em;
     }
 
-    .img-circle {
-      width: 120px;
-      height: 120px;
+    #profile-photo {
+
+      img {
+        border: 3px solid white;
+      }
+
+      .img-circle {
+        width: 120px;
+        height: 120px;
+      }
+    }  
+
+    #bio {
+      padding-top: 5px;
+      p {
+        font-weight: 100;
+        color: #b3b3b1;
+      }
     }
-  }  
 
-  #bio {
-    padding-top: 10px;
-    p {
-      font-weight: 100;
-      color: #b3b3b1;
+    #new-episode {
+
+      background-color:rgba(0, 0, 0, 0.1);
+      border: 1px solid #eaeaea;
+      border-radius: 15px;
+      height: 40px;
+      width: 180px;
+      color: #eaeaea;
+        
+        
+      &:hover {
+       color: #24c0ab;
+       background-color:rgba(0, 0, 0, 0.1);
+       border: 1px solid #24c0ab;
+       text-decoration: none;       
+      }
+
+      &:focus {
+        outline: 0;
+      }
     }
-  }
 
-  #new-episode {
+    #profile-stats-posts {
+       
+      overflow: auto;
+      font-weight: 300;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
 
-    background-color:rgba(0, 0, 0, 0.1);
-    border: 1px solid #eaeaea;
-    border-radius: 15px;
-    height: 40px;
-    width: 180px;
-    color: #eaeaea;
+      a {
+        color: #b3b3b1;
+        padding-right: 10px;
+        display: inline-block;
+
+        &:first-child {
+          color: white;
+        }
+
+        &:hover {
+         text-decoration: none;
+         color: white;
+        }
+      }
       
+      strong {
+        display: block;
+      }  
+    }
+
+    #profile-stats-followers {
       
-    &:hover {
-     color: #24c0ab;
-     background-color:rgba(0, 0, 0, 0.1);
-     border: 1px solid #24c0ab;
-     text-decoration: none;       
+      overflow: auto;
+      font-weight: 300;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+
+      a {
+        color: #b3b3b1;
+        padding-right: 10px;
+        display: inline-block;
+
+        &:nth-child(2) {
+          color: white;
+        }
+
+        &:hover {
+         text-decoration: none;
+         color: white;
+        }
+      }
+      
+      strong {
+        display: block;
+      }  
     }
 
-    &:focus {
-      outline: 0;
+    #profile-stats-following {
+      
+      overflow: auto;
+      font-weight: 300;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+
+      a {
+        color: #b3b3b1;
+        padding-right: 10px;
+        display: inline-block;
+
+        &:nth-child(3) {
+          color: white;
+        }
+
+        &:hover {
+         text-decoration: none;
+         color: white;
+        }
+      }
+      
+      strong {
+        display: block;
+      }  
     }
-  }
-
-  #profile-stats-posts {
-    padding-top: 30px; 
-    overflow: auto;
-
-    a {
-      color: #b3b3b1;
-      padding-right: 10px;
-      display: inline-block;
-
-      &:first-child {
-        color: white;
-      }
-
-      &:hover {
-       text-decoration: none;
-       color: white;
-      }
-    }
-    
-    strong {
-      display: block;
-    }  
-  }
-
-  #profile-stats-followers {
-    padding-top: 30px; 
-    overflow: auto;
-
-    a {
-      color: #b3b3b1;
-      padding-right: 10px;
-      display: inline-block;
-
-      &:nth-child(2) {
-        color: white;
-      }
-
-      &:hover {
-       text-decoration: none;
-       color: white;
-      }
-    }
-    
-    strong {
-      display: block;
-    }  
-  }
-
-  #profile-stats-following {
-    padding-top: 30px; 
-    overflow: auto;
-
-    a {
-      color: #b3b3b1;
-      padding-right: 10px;
-      display: inline-block;
-
-      &:nth-child(3) {
-        color: white;
-      }
-
-      &:hover {
-       text-decoration: none;
-       color: white;
-      }
-    }
-    
-    strong {
-      display: block;
-    }  
   }
 }
 
 .feature {
-  
+
+  height: 100%;
+  width: 60%;
+  float: right;
+
+  h2 {
+    padding: 15px 0 0 45px;
+    font-weight: 300;
+    font-spacing: 0.2em;
+  }
+
   ul {
     list-style: none;
     margin: 0;
+    padding-left: 45px;
 
     .episode {  
       padding: 15px 0 15px 0; 
@@ -380,7 +433,13 @@ nav {
       h3 {
         padding: 0 0 15px 0;  
       }
-    }  
+    }
+
+    li {
+      &:last-child {
+          padding-bottom: 25px;
+        }
+    }   
   }
 }
 
@@ -388,13 +447,18 @@ nav {
 
 .follow {
   
+  height: 100%;
+  width: 60%;
+  float: right;
+
   h2 {
-    padding: 15px 0 15px 0;
+    padding: 15px 0 15px 45px;
     font-weight: 300;
   }
 
   ul {
     list-style: none;
+    padding-left: 45px;
 
     li {
       
