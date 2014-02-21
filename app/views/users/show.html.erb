@@ -83,6 +83,7 @@
 			
 		</div>
 	</div>	
+
 </div>	
 
 <div class="feature">
@@ -90,7 +91,7 @@
 	<% if @count > 0 %>
 
 		<div div="latest-episode">
-			<h2>Latest Episode</h2>
+			<h2>Episodes</h2>
 		</div>
 
 		<ul>
@@ -104,11 +105,43 @@
 					
 
 					<% if p.yt? && i==0 && current_user!=@user %>
-						<iframe class="youtube-player" type="text/html" width="658" height="405" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
-						</iframe>
-					<% elsif p.yt? && i>=0 %>
-						<iframe class="youtube-player" type="text/html" width="658" height="405" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
-						</iframe>		
+
+						<section class="gem">
+							<iframe name="main-player" class="youtube-player" type="text/html" width="494" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+							</iframe>
+
+							<div class="track-info">
+								<h5><%= p.title %></h5>
+							</div>
+						</section>	
+
+						<div>
+							<a href="javascript:;" target="main-player" data-remote="true" class="menu" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
+							<%= p.title %> by <%= p.artist %>
+						</a>
+						</div>
+
+					<% elsif p.yt? && i==0 %>
+						<section class="gem">
+							<iframe name="main-player" class="youtube-player" type="text/html" width="494" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+							</iframe>
+
+							<div class="track-info">
+								<h5><%= p.title %></h5>
+							</div>
+						</section>	
+
+						<div>
+							<a href="javascript:;" target="main-player" data-remote="true" class="menu" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
+							<%= p.title %> by <%= p.artist %>
+						</a>
+						</div>	
+					
+					<% elsif p.yt? && i>0 %>
+						<a href="javascript:;" target="main-player" data-remote="true" class="menu" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
+							<%= p.title %> by <%= p.artist %>
+						</a>
+
 					<% end %>	
 
 				</div>

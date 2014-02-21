@@ -8,7 +8,6 @@ class UsersController < ApplicationController
  		if @user
  			@posts = @user.posts
  			@count = @posts.count
- 			render 'show'
  		else
  			redirect_to root_path
  		end
