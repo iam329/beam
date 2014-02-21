@@ -57,7 +57,7 @@ h1 {
 }
 
 h2 {
-
+  color: white;
 }
 
 h3 {
@@ -213,7 +213,7 @@ p {
 }
 
 
-.feature {
+.feature-home {
 	
   #latest-episode {
 
@@ -223,21 +223,11 @@ p {
     padding: 15px 0 15px 0; 
 
     h2 {
-  	
+  	 
     }
 
     h3 {
     	padding: 0 0 15px 0;	
-    }
-
-    .gem {
-      .youtube-player {
-        float: left;
-      }
-
-      #track-info {
-        height: 304;
-      }
     }
 
     #feed-info {
@@ -268,7 +258,7 @@ nav {
 
 #profile-wall-wrapper {
     min-height: 100%;
-    width: 40%;
+    width: 35%;
     float: left;
     position: fixed;
 }
@@ -418,7 +408,7 @@ nav {
 .feature {
 
   height: 100%;
-  width: 60%;
+  width: 65%;
   float: right;
   background: #16161a;
 
@@ -428,13 +418,61 @@ nav {
     font-spacing: 0.2em;
   }
 
+  .gem {
+
+    padding-right: 45px;
+
+    .youtube-player {
+      float: left;
+    }
+
+    .track-info {
+      background: black;
+      padding-left: 25px;
+      padding-right: 25px;
+      height: 304px;
+
+      #episode-number {
+        padding-top: 25px;
+        color: #b3b3b1;
+        font-weight: 300;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      #track-title {
+        h4 {
+          color: #24c0ab;
+          font-weight: 300;
+          margin-bottom: 2px;
+        }
+      }
+
+      #artist-name {
+        color: white;
+      }
+
+      #blurb {
+        padding-top: 15px;
+        color: $grayLight;
+      }
+
+      #timestamp {
+        padding-top: 35px;
+        font-size: 11px;
+      }
+      
+    }
+  }
+
   ul {
     list-style: none;
     margin: 0;
     padding-left: 45px;
 
     .episode {  
-      padding: 15px 0 15px 0; 
+      padding: 10px 0 10px 0; 
       margin: 0;
 
       h2 {
@@ -459,7 +497,7 @@ nav {
 .follow {
   
   height: 100%;
-  width: 60%;
+  width: 65%;
   float: right;
   background: #0f1010;
 

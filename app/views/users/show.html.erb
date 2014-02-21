@@ -97,7 +97,7 @@
 		<ul>
 			<% @posts.each_with_index do |p,i|  %>
 
-			<% ep = @count - i %>
+			<% ep = @count-i %>
 
 			<li>
 				<div class="episode">
@@ -107,12 +107,31 @@
 					<% if p.yt? && i==0 && current_user!=@user %>
 
 						<section class="gem">
-							<iframe name="main-player" class="youtube-player" type="text/html" width="494" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+							<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
 							</iframe>
 
-							<div class="track-info">
-								<h5><%= p.title %></h5>
-							</div>
+							<section class="track-info">
+								<div id="episode-number">
+									Episode <%= ep %>
+								</div>
+
+								<div id="track-title">
+									<h4><%= p.title %></h4>
+								</div>
+
+								<div id="artist-name">
+									By <%= p.artist %>
+								</div>
+								
+								<div id="blurb">
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+								</div>
+
+								<div id="timestamp">
+									<%= time_ago_in_words(p.created_at) %> ago
+								</div>
+									
+							</section>
 						</section>	
 
 						<div>
@@ -122,13 +141,33 @@
 						</div>
 
 					<% elsif p.yt? && i==0 %>
+						
 						<section class="gem">
-							<iframe name="main-player" class="youtube-player" type="text/html" width="494" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+							<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
 							</iframe>
 
-							<div class="track-info">
-								<h5><%= p.title %></h5>
-							</div>
+							<section class="track-info">
+								<div id="episode-number">
+									Episode <%= ep %>
+								</div>
+
+								<div id="track-title">
+									<h4><%= p.title %></h4>
+								</div>
+
+								<div id="artist-name">
+									By <%= p.artist %>
+								</div>
+								
+								<div id="blurb">
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+								</div>
+
+								<div id="timestamp">
+									<%= time_ago_in_words(p.created_at) %> ago
+								</div>
+									
+							</section>
 						</section>	
 
 						<div>

@@ -19,6 +19,6 @@ module ApplicationHelper
      background-size: cover;
      background-position: center;
      height: 100%;
-     width: 40%;"
+     width: 35%;"
   end
 end
