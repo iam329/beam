@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$("a").click(function() {
+	$("button").click(function() {
 	
 	var vid = $(this).attr("vid");
 	var title = $(this).attr("title");
