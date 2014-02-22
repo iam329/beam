@@ -102,7 +102,6 @@
 			<li>
 				<div class="episode">
 
-					
 
 					<% if p.yt? && i==0 && current_user!=@user %>
 
@@ -134,10 +133,11 @@
 							</section>
 						</section>	
 
-						<div>
-							<a href="javascript:;" target="main-player" data-remote="true" class="menu" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
-							<%= p.title %> by <%= p.artist %>
-						</a>
+						<div class="menu">
+							<a href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
+								
+								<%= p.title %> by <%= p.artist %>
+							</a>
 						</div>
 
 					<% elsif p.yt? && i==0 %>
@@ -170,17 +170,28 @@
 							</section>
 						</section>	
 
-						<div>
-							<a href="javascript:;" target="main-player" data-remote="true" class="menu" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
+						<div class="menu">
+							<a href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
+							
 							<%= p.title %> by <%= p.artist %>
-						</a>
+						
+							</a>
 						</div>	
 					
 					<% elsif p.yt? && i>0 %>
-						<a href="javascript:;" target="main-player" data-remote="true" class="menu" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
-							<%= p.title %> by <%= p.artist %>
-						</a>
 
+						<div class="menu">
+							<a href="javascript:;" target="main-player" data-remote="true" class="menu" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
+								
+								<div id="episode-thumb">
+									<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"213x120" %> 
+								</div>
+								
+								<div id="thumb-title">
+									<%= p.title %> 
+								</div>
+							</a>
+						</div>	
 					<% end %>	
 
 				</div>
@@ -188,5 +199,6 @@
 				
 			<% end %>
 		</ul>
+
 	<% end %>	
 </div>

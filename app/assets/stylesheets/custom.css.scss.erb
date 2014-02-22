@@ -407,26 +407,27 @@ nav {
 
 .feature {
 
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   width: 65%;
   float: right;
   background: #16161a;
 
   h2 {
-    padding: 15px 0 0 45px;
+    padding: 15px 0 0 35px;
     font-weight: 300;
     font-spacing: 0.2em;
   }
 
   .gem {
 
-    padding-right: 45px;
-
     .youtube-player {
+      
       float: left;
     }
 
     .track-info {
+      
       background: black;
       padding-left: 25px;
       padding-right: 25px;
@@ -469,22 +470,26 @@ nav {
   ul {
     list-style: none;
     margin: 0;
-    padding-left: 45px;
+    padding-left:35px;
+    padding-right:35px;
 
     .episode {  
-      padding: 10px 0 10px 0; 
-      margin: 0;
 
-      h2 {
-      
-      }
+      margin: 0;
 
       h3 {
         padding: 0 0 15px 0;  
       }
+
+      .menu {
+        padding: 10px 0 10px 0; 
+      }
     }
 
     li {
+
+      display: inline-block;
+
       &:last-child {
           padding-bottom: 25px;
         }
