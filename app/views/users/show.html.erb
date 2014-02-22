@@ -93,6 +93,69 @@
 		<div div="latest-episode">
 			<h2>Episodes</h2>
 		</div>
+	
+	<div >	
+		<% if @latestpost.yt? && current_user!=@user %>
+
+			<section class="gem">
+				<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&autoplay=1&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+				</iframe>
+
+				<section class="track-info">
+					<div id="episode-number">
+						Episode <%= @count %>
+					</div>
+
+					<div id="track-title">
+						<h4><%= @latestpost.title %></h4>
+					</div>
+
+					<div id="artist-name">
+						By <%= @latestpost.artist %>
+					</div>
+								
+					<div id="blurb">
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+					</div>
+
+					<div id="timestamp">
+						<%= time_ago_in_words(@latestpost.created_at) %> ago
+					</div>
+									
+				</section>
+			</section>	
+
+			<% elsif @latestpost.yt? %>
+						
+				<section class="gem">
+					<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+					</iframe>
+
+						<section class="track-info">
+							<div id="episode-number">
+									Episode <%=@count%>
+							</div>
+
+							<div id="track-title">
+								<h4><%= @latestpost.title %></h4>
+							</div>
+
+							<div id="artist-name">
+								By <%= @latestpost.artist %>
+							</div>
+								
+							<div id="blurb">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+							</div>
+
+							<div id="timestamp">
+									<%= time_ago_in_words(@latestpost.created_at) %> ago
+							</div>
+									
+						</section>
+				</section>	
+		<% end %>
+		</div>	
 
 		<ul>
 			<% @posts.each_with_index do |p,i|  %>
@@ -102,68 +165,7 @@
 			<li>
 				<div class="episode">
 
-
-					<% if p.yt? && i==0 && current_user!=@user %>
-
-						<section class="gem">
-							<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
-							</iframe>
-
-							<section class="track-info">
-								<div id="episode-number">
-									Episode <%= ep %>
-								</div>
-
-								<div id="track-title">
-									<h4><%= p.title %></h4>
-								</div>
-
-								<div id="artist-name">
-									By <%= p.artist %>
-								</div>
-								
-								<div id="blurb">
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
-								</div>
-
-								<div id="timestamp">
-									<%= time_ago_in_words(p.created_at) %> ago
-								</div>
-									
-							</section>
-						</section>	
-
-					<% elsif p.yt? && i==0 %>
-						
-						<section class="gem">
-							<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+p.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
-							</iframe>
-
-							<section class="track-info">
-								<div id="episode-number">
-									Episode <%= ep %>
-								</div>
-
-								<div id="track-title">
-									<h4><%= p.title %></h4>
-								</div>
-
-								<div id="artist-name">
-									By <%= p.artist %>
-								</div>
-								
-								<div id="blurb">
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
-								</div>
-
-								<div id="timestamp">
-									<%= time_ago_in_words(p.created_at) %> ago
-								</div>
-									
-							</section>
-						</section>	
-					
-					<% elsif p.yt? && i>0 %>
+					<% if p.yt? %>
 
 							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" >
 								
