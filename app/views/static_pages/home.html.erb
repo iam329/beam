@@ -1,69 +1,107 @@
 <% provide(:title, 'Home') %>
 
-<div class="center home-hero">
-
-	<nav>
-	   	<ul class="nav nav-pills pull-left">
-	       	<li><%= link_to "Home", root_path %></li> 	
-	    </ul>
-	   		 
-	 <% if signed_in? %>
-	    <ul class="nav nav-pills pull-right">
-	       	 <li id="fat-menu" class="dropdown">
-    	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-             <ul class="dropdown-menu pull-right">
-                <li><%= link_to "Profile", profile_path(current_user.name) %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li>
-                  <%= link_to "Log Out", logout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>	
-		    </ul>
-	 <% else %>
-
-	 	<ul class="nav nav-pills pull-right">
-	       	<li><%= link_to "Login", signin_path %></li> 	
-	    </ul>
-
-	    <ul class="nav nav-pills pull-right">
-	       	<li><%= link_to "Signup", signup_path %></li> 	
-	    </ul>
-
-	 <% end %>	 
-	    
-	</nav>
-
-	<h1>TapeDeckHero.</h1>
-	
-	<p>Feature Your Song of the Day</p>	
+<div id="home-wall-wrapper" >
+	<div class="home-wall fixed">
 		
-</div>
+		<div class="center home-hero">	
 
-<div class="container feature">
+			<div id="home-title">
+				<h1>Tonic</h1>
+			</div>
 
-	<% if signed_in? %>
-		
-	<ul>
-			<% @feed_items.each do |p|  %>
+			<div id="slogan">
+				<p>Lorem ipsum dolor sit amet</p>
+			</div>
+			
+			<div>
+				<% if signed_in? %>
+					<%= button_to "New Episode", new_post_path, id:"new-episode", method: "get" %>
+				<% end %>
+			</div>	
+			
+		</div>
+	</div>	
 
-			<li>
-				<div class="episode"> 
+</div>	
 
-					<div id="feed-info">
-						<h3>"<%= p.title %>" by <span id="artist"><%= p.artist %></span></h3>
+<div class="home-feature">
+
+	<div class="stage">	
+
+		<div div="latest-episode">
+			<h2>Feed</h2>
+		</div>
+
+		<% if @latestpost.yt? %>
+
+			<section class="gem">
+				<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&autoplay=0&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+				</iframe>
+
+				<section class="track-info">
+					
+					<div class="track-head">					
+						<div id="track-title">
+							<h4><%= @latestpost.title %></h4>
+						</div>
+
+						<div id="artist-name">
+							By <%= @latestpost.artist %>
+						</div>
 					</div>	
+	
+					<div id="blurb">
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+					</div>
 
 					<div id="profile-photo">
-						<%= link_to image_tag(p.user.photo.url, size: "50x50", class: "img-circle"), profile_path(p.user.name) %>	
-					</div>
+						<%= image_tag @latestpost.user.photo.url, size:"50x50", class: "img-circle" %>
+					</div>	
 						
+					<div id="timestamp">
+						Posted <%= time_ago_in_words(@latestpost.created_at) %> ago by <span><%= @latestpost.user.name %></span>
+					</div>
+									
+				</section>
+			</section>	
+
+		<% end %>
+	</div>	
+
+	<div class="chest">
+		<ul>
+			<% @feed_items.each_with_index do |p,i|  %>
+
+			<% ep = @count-i %>
+
+			<li>
+				<div class="episode">
+
 					<% if p.yt? %>
-						<iframe class="youtube-player" type="text/html" width="940" height="578" src="<%= "http://www.youtube.com/embed/"+p.ytcode %>" allowfullscreen frameborder="0">
-						</iframe>
-			
+
+							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >
+								
+								<div id="thumb-photo">
+									<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %> 
+								</div>
+								
+								<div id="thumb-title">
+									<%= p.title %> 
+								</div>
+
+								<div id="thumb-artist">
+									<%= p.artist %> 
+								</div>
+
+								<div id="thumb-profile-photo">
+									<%= image_tag p.user.photo.url, size:"35x35", class: "img-circle" %>
+									
+									<span id="thumb-user-name">
+										<%= p.user.name %>
+									</span>
+								</div>
+
+							</button>
 					<% end %>	
 
 				</div>
@@ -71,9 +109,5 @@
 				
 			<% end %>
 		</ul>
- 
- 	<% end %>
-
+	</div>		
 </div>
-
-
