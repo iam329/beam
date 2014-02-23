@@ -11,7 +11,7 @@ $(document).ready(function() {
 	$(".track-info").find("#episode-number").text("Episode "+episode);
 	$(".track-info").find("#track-title").find("h4").text(title);
 	$(".track-info").find("#artist-name").text(artist);
-	$(".track-info").find("#timestamp").text(created);
+	$(".track-info").find("#timestamp").text(created+" ago");
 	});
 });
 
