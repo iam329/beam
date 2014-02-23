@@ -156,6 +156,32 @@ p {
   }
 }
 
+/* MENU */
+
+.menu {
+	position:absolute;
+    bottom:0;
+    width:100%;
+    padding:10px;
+	
+	img {
+		padding:15px;
+	}
+	
+	#icon_home:hover {
+		content: url(<%= asset_path('icon_home_hover.svg') %>);
+	}
+	#icon_profile:hover {
+		content: url(<%= asset_path('icon_profile_hover.svg') %>);
+	}
+	#icon_search:hover {
+		content: url(<%= asset_path('icon_search_hover.svg') %>);
+	}
+	#icon_settings:hover {
+		content: url(<%= asset_path('icon_settings_hover.svg') %>);
+	}
+}
+
 /* NAV */
 
 .nav-pills {
@@ -600,6 +626,8 @@ nav {
   }
 
   .gem {
+  	
+  	position: relative;
 
     padding-left: 35px;
     padding-right: 35px;
@@ -648,6 +676,10 @@ nav {
         font-size: 11px;
       }
       
+      #share {
+      	float: right;    
+      	padding-top: 35px; 	
+      }
     }
   }
 
@@ -674,7 +706,7 @@ nav {
         padding: 0 0 0 0;
         background: black;
         border: 1px solid #2d2d40;
-        border-radius: 5px 5px 5px 5px;
+        border-radius: 10px 10px 10px 10px;
          
         opacity: 0.60;
         filter: alpha(opacity=50);
