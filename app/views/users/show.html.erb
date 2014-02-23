@@ -98,7 +98,7 @@
 		<% if @latestpost.yt? && current_user!=@user %>
 
 			<section class="gem">
-				<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&autoplay=1&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+				<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
 				</iframe>
 
 				<section class="track-info">
@@ -128,7 +128,7 @@
 			<% elsif @latestpost.yt? %>
 						
 				<section class="gem">
-					<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&controls=1&showinfo=0&autohide=1" %>" allowfullscreen frameborder="0">
+					<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
 					</iframe>
 
 						<section class="track-info">
@@ -167,7 +167,7 @@
 
 					<% if p.yt? %>
 
-							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >
+							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >
 								
 								<div id="thumb-photo">
 									<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %> 
