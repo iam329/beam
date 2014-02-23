@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$("button").click(function() {
+	$(".feature").find("button").click(function() {
 	
 	var vid = $(this).attr("vid");
 	var title = $(this).attr("title");
