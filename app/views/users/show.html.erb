@@ -131,6 +131,10 @@
 					<div id="timestamp">
 						<%= time_ago_in_words(@latestpost.created_at) %> ago
 					</div>
+					
+					<div id="share">
+						<%= social_share_button_tag(@user) %>
+					</div>
 									
 				</section>
 			</section>	
@@ -160,6 +164,10 @@
 
 							<div id="timestamp">
 									<%= time_ago_in_words(@latestpost.created_at) %> ago
+							</div>
+							
+							<div id="share">
+								<%= social_share_button_tag(@user) %>
 							</div>
 									
 						</section>
