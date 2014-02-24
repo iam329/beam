@@ -27,7 +27,7 @@ $(document).ready(function() {
 	$(".youtube-player").attr("src", vid);
 	$(".track-info").find("#track-title").find("h4").text(title);
 	$(".track-info").find("#artist-name").text(artist);
-	$(".track-info").find("#timestamp").find("#username").find("a").text(username);
+	$(".track-info").find("#timestamp").find("#username").text(username);
 	$(".track-info").find("#timestamp").find("#time").text("Posted "+created+ " ago by ");
 	$(".track-info").find("#profile-photo").find("img").attr("src", photo);
 

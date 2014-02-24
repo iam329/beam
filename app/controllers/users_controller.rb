@@ -23,7 +23,8 @@ class UsersController < ApplicationController
 
 		if @user.save
 			sign_in @user
-			redirect_to profile_path(@user.name)
+			flash[:success] = "Welcome to TapeDeckHero! What's your track of the day?"
+			redirect_to @user
 		else
 		 	render 'new'
 		end	
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
     	@user = User.find(params[:id])
    	 	
    	 	if @user.update_attributes(user_params)
+      		flash[:success] = "Profile Updated"
       		redirect_to profile_path(@user.name)
     	else
       		render 'edit'
