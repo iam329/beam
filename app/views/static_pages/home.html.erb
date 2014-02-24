@@ -92,7 +92,7 @@
 
 					<% if p.yt? %>
 
-							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= p.user.photo.url %>" user="<%= p.user.name %>">
+							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= p.user.photo.url %>" user="<%= p.user.name %>">
 								
 								<div id="thumb-photo">
 									<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %> 
