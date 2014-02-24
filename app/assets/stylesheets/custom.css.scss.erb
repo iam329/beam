@@ -7,8 +7,7 @@
 }
 
 html {
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-y: scroll;
   height: 100%;
   width: 100%;
 }
@@ -163,42 +162,25 @@ p {
 	position:absolute;
     bottom:0;
     width:100%;
-    padding:10px;
+    padding-bottom: 30px;
 	
 	img {
-		padding:15px;
+    width: 25px;
+    height: 25px;
+		padding-right:15px;
 	}
 	
-	#icon_home {
-		opacity: 0.5;
-		
-		&:hover {
-			opacity: 1.0;
-		}
+	#icon_home:hover {
+		content: url(<%= asset_path('icon_home_hover.svg') %>);
 	}
-	
-	#icon_profile {
-		opacity: 0.5;
-		
-		&:hover {
-			opacity: 1.0;
-		}
+	#icon_profile:hover {
+		content: url(<%= asset_path('icon_profile_hover.svg') %>);
 	}
-	
-	#icon_search {
-		opacity: 0.5;
-		
-		&:hover {
-			opacity: 1.0;
-		}
+	#icon_search:hover {
+		content: url(<%= asset_path('icon_search_hover.svg') %>);
 	}
-	
-	#icon_settings {
-		opacity: 0.5;
-		
-		&:hover {
-			opacity: 1.0;
-		}
+	#icon_settings:hover {
+		content: url(<%= asset_path('icon_settings_hover.svg') %>);
 	}
 }
 
@@ -266,9 +248,8 @@ p {
   .home-hero {
     
     h1 {
-      vertical-align: middle;
-      padding-top: 200px;
-      font-size: 3em;
+      padding-top: 225px;
+      font-size: 4em;
     }
   
     #slogan {
@@ -279,8 +260,11 @@ p {
       }
     }
 
-    #new-episode {
+    #button {
+      padding-top: 30px;
+    }
 
+    #new-action {
       background-color:rgba(0, 0, 0, 0.1);
       border: 1px solid #eaeaea;
       border-radius: 15px;
