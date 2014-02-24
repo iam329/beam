@@ -7,7 +7,8 @@
 }
 
 html {
-  overflow-y: scroll;
+  overflow-y: hidden;
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
 }
@@ -168,17 +169,36 @@ p {
 		padding:15px;
 	}
 	
-	#icon_home:hover {
-		content: url(<%= asset_path('icon_home_hover.svg') %>);
+	#icon_home {
+		opacity: 0.5;
+		
+		&:hover {
+			opacity: 1.0;
+		}
 	}
-	#icon_profile:hover {
-		content: url(<%= asset_path('icon_profile_hover.svg') %>);
+	
+	#icon_profile {
+		opacity: 0.5;
+		
+		&:hover {
+			opacity: 1.0;
+		}
 	}
-	#icon_search:hover {
-		content: url(<%= asset_path('icon_search_hover.svg') %>);
+	
+	#icon_search {
+		opacity: 0.5;
+		
+		&:hover {
+			opacity: 1.0;
+		}
 	}
-	#icon_settings:hover {
-		content: url(<%= asset_path('icon_settings_hover.svg') %>);
+	
+	#icon_settings {
+		opacity: 0.5;
+		
+		&:hover {
+			opacity: 1.0;
+		}
 	}
 }
 
