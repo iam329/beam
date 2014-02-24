@@ -186,8 +186,8 @@ p {
 	}
 }
 
-/* LOGOUT */
-.logout {
+/* LOGIN/OUT */
+.login-out {
   position:absolute;
   top: 15px;
   left: 15px;
@@ -301,12 +301,6 @@ p {
       }
     }
 
-    #login {
-      span {
-        display: inline;
-        
-      }
-    }
   }
 }
   
@@ -384,7 +378,14 @@ p {
             font-size: 11px;
 
           #username {
-            color: #eaeaea;
+            a {
+              color: #eaeaea;
+
+              &:hover {
+                text-decoration: none;
+                color: #24c0ab;
+              }
+            }            
           }
         }   
       }
