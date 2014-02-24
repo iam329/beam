@@ -52,7 +52,7 @@
 
 	<div class="stage">	
 
-		<div div="latest-episode">
+		<div id="latest-episode">
 			<h2>Feed</h2>
 		</div>
 
@@ -92,7 +92,7 @@
 		<% end %>
 	</div>	
 
-	<div class="chest">
+	<div class="chest" style="overflow:auto;">
 		<ul>
 			<% @feed_items.each_with_index do |p,i|  %>
 
