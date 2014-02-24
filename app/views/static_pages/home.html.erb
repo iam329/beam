@@ -2,15 +2,15 @@
 
 <div id="home-wall-wrapper" >
 	<div class="home-wall fixed">
+
+		<% if signed_in? %>
+			<div class="logout">
+					<%= link_to(image_tag(asset_path("icon_logout.svg")), logout_path, method: "delete") %>
+			</div>
+		<% end %>
 		
 		<div class="center home-hero">	
-
-			<% if signed_in? %>
-				<div>
-					<%= link_to "Sign out", logout_path, method: "delete" %>
-				</div>
-			<% end %>	
-				
+	
 			<div id="home-title">
 				<h1>Tonic</h1>
 			</div>

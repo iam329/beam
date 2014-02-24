@@ -172,17 +172,57 @@ p {
 	}
 	
 	#icon_home:hover {
-		content: url(<%= asset_path('icon_home_hover.svg') %>);
+		
 	}
 	#icon_profile:hover {
-		content: url(<%= asset_path('icon_profile_hover.svg') %>);
+	
 	}
+
 	#icon_search:hover {
-		content: url(<%= asset_path('icon_search_hover.svg') %>);
+		
 	}
 	#icon_settings:hover {
-		content: url(<%= asset_path('icon_settings_hover.svg') %>);
+
 	}
+}
+
+/* LOGOUT */
+.logout {
+  position:absolute;
+  top: 15px;
+  left: 15px;
+
+  img {
+    width: 25px;
+    height: 25px;
+
+  }
+}
+
+/* ACTION BUTTON */
+
+#button {
+      padding-top: 15px;
+    }
+
+#new-action {
+  background-color:rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+  border-radius: 15px;
+  height: 40px;
+  width: 180px;
+  color: #eaeaea;
+               
+  &:hover {
+   color: #24c0ab;
+   background-color:rgba(0, 0, 0, 0.1);
+   border: 1px solid #24c0ab;
+   text-decoration: none;       
+  }
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 /* NAV */
@@ -260,32 +300,6 @@ p {
         color: #b3b3b1;
       }
     }
-
-    #button {
-      padding-top: 30px;
-    }
-
-    #new-action {
-      background-color:rgba(0, 0, 0, 0.1);
-      border: 1px solid #eaeaea;
-      border-radius: 15px;
-      height: 40px;
-      width: 180px;
-      color: #eaeaea;
-        
-        
-      &:hover {
-       color: #24c0ab;
-       background-color:rgba(0, 0, 0, 0.1);
-       border: 1px solid #24c0ab;
-       text-decoration: none;       
-      }
-
-      &:focus {
-        outline: 0;
-      }
-    }
-
   }
 }
   
@@ -491,6 +505,8 @@ nav {
     }
 
     #profile-photo {
+
+      padding-top: 100px;
 
       img {
         border: 3px solid white;
