@@ -303,12 +303,10 @@ p {
     padding-bottom: 35px;
 
     .gem {
-
       padding-left: 35px;
       padding-right: 35px;
 
       .youtube-player {
-        
         float: left;
       }
 
@@ -353,12 +351,13 @@ p {
         }
 
         #timestamp {
-          padding-left: 10px;
-          display:inline;
-          line-height: 55px;
-          font-size: 11px;
 
-          span {
+            padding-left: 10px;
+            display:inline;
+            line-height: 55px;
+            font-size: 11px;
+
+          #username {
             color: #eaeaea;
           }
         }   
@@ -407,38 +406,41 @@ p {
             outline: 0;
           }
 
-          #thumb-title {
-            padding-top: 10px;
-            padding-left: 15px;
-            color: #24c0ab;
-          }
+          .info-box {
+            position: relative;
+            width: 211px;
+            height: 55px;
+            overflow:hidden;  
+              
+            #thumb-title {
+              width: 171px;
+              padding-top: 10px;
+              padding-left: 10px;
+              padding-right: 35px;
+              color: #24c0ab;
+            }
 
-          #thumb-artist {
-            padding-bottom: 5px;
-            padding-left: 15px;
-            color: white;
-            font-size: 12px;
-          }
+            #thumb-artist {
 
-          #thumb-profile-photo {
-            padding-bottom: 10px;
-            padding-left: 15px;
-            display: inline;
-
-            img {
-
+              width: 171px;
+              padding-bottom: 5px;
+              padding-left: 10px;
+              color: white;
+              font-size: 12px;
             }
 
             .img-circle {
-                  width: 25px;
-                  height: 25px;
-                  border: 1px solid #eaeaea;
+              position: absolute;
+              bottom: 10px;
+              right: 10px;
+              width: 30px;
+              height: 30px;
+              border: 1px solid #eaeaea;
             }
+          }  
 
-            #thumb-user-name {
-              font-size: 11px;
-              color: #eaeaea;
-            }  
+          #thumb-photo {
+
           }
         }
 
@@ -628,13 +630,11 @@ nav {
   .gem {
   	
   	position: relative;
-
     padding-left: 35px;
     padding-right: 35px;
     padding-bottom: 35px;
 
     .youtube-player {
-      
       float: left;
     }
 

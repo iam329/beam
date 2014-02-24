@@ -59,7 +59,7 @@
 					</div>	
 						
 					<div id="timestamp">
-						Posted <%= time_ago_in_words(@latestpost.created_at) %> ago by <span><%= @latestpost.user.name %></span>
+						<span id="time">Posted <%= time_ago_in_words(@latestpost.created_at) %> ago by</span> <span id="username"><%= @latestpost.user.name %></span>
 					</div>
 									
 				</section>
@@ -79,27 +79,26 @@
 
 					<% if p.yt? %>
 
-							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >
+							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= p.user.photo.url %>" user="<%= p.user.name %>">
 								
 								<div id="thumb-photo">
 									<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %> 
 								</div>
 								
-								<div id="thumb-title">
-									<%= p.title %> 
-								</div>
+								<div class="info-box">
+									<div id="thumb-title">
+										<%= p.title %> 
+									</div>
 
-								<div id="thumb-artist">
-									<%= p.artist %> 
-								</div>
+									<div id="thumb-artist">
+										<span>
+											<%= p.artist %> 
+										</span>
+									</div>
 
-								<div id="thumb-profile-photo">
-									<%= image_tag p.user.photo.url, size:"35x35", class: "img-circle" %>
-									
-									<span id="thumb-user-name">
-										<%= p.user.name %>
-									</span>
-								</div>
+									<%= image_tag p.user.photo.url, size:"30x30", class: "img-circle" %>
+
+								</div>	
 
 							</button>
 					<% end %>	
