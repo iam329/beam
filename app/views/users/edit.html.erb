@@ -2,30 +2,7 @@
 
 <div class="user-forms">
 	<div id="signup">
-	    <nav>
-	    	<ul class="nav nav-pills pull-left">
-	        	<li><%= link_to "Home", root_path %></li> 	
-	         </ul>
-	   		 
-	   		 <% if signed_in? %>
-		    <ul class="nav nav-pills pull-right">
-		       	 <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu pull-right">
-                <li><%= link_to "Profile", profile_path(current_user.name) %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li>
-                  <%= link_to "Log Out", logout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>	
-		    </ul>
-	   	<% end %>	 
-
-	     </nav>
-	  
+	    
 	<div class="center">
 
 		<h1>Update Profile</h1>

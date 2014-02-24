@@ -4,7 +4,7 @@
 	<div class="profile-wall fixed">
 		
 		<% if signed_in? %>
-			<div class="logout">
+			<div class="login-out">
 					<%= link_to(image_tag(asset_path("icon_logout.svg")), logout_path, method: "delete") %>
 			</div>
 		<% end %>
@@ -66,30 +66,38 @@
 			
 		</div>
 		
-		<div class ="center menu">
-			
-			<a href=<%= root_path %>>
-				<img src=<%= asset_path('icon_home_hover.svg') %> width="8%" height="8%" id="icon_home" />
-			</a>
-			<a href=<%= @current_user.name %>>
-				<img src=<%= asset_path('icon_profile.svg') %> width="5.5%" height="5.5%" id="icon_profile" />
-			</a>
-				<img src=<%= asset_path('icon_search.svg') %> width="7%" height="7%" id="icon_search" />
-				<img src=<%= asset_path('icon_settings.svg') %> width="7%" height="7%" id="icon_settings" />
-			
-		</div>
-		
+		<% if signed_in? %>
+			<div class ="center menu">
+				
+				<a href=<%= root_path %>>
+					<img src=<%= asset_path('icon_home_hover.svg') %> id="icon_home" />
+				</a>
+
+				<a href=<%= @current_user.name %>>
+					<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
+				</a >
+
+				<a>
+					<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
+				</a>
+				
+				<a href=<%= edit_user_path(@current_user.id) %>>	
+					<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+				</a>
+
+			</div>
+		<% end %>		
 	</div>	
 
 </div>	
 
 <div class="feature">
 
-	<% if @count > 0 %>
-
 		<div div="latest-episode">
 			<h2>Episodes</h2>
 		</div>
+
+	<% if @count > 0 %>	
 	
 	<div >	
 		<% if @latestpost.yt? && current_user!=@user %>
