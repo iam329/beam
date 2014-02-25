@@ -330,13 +330,13 @@ p {
   	top:415px;
   	
   	background: -moz-linear-gradient(top, rgba(25,25,31,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(25,25,31,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19191f', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
-  }
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(25,25,31,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  	background: -webkit-linear-gradient(top, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  	background: -o-linear-gradient(top, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+  	background: -ms-linear-gradient(top, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+  	background: linear-gradient(to bottom, rgba(25,25,31,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19191f', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+    }
 
   h2 {
   	z-index: 2;
@@ -860,7 +860,7 @@ nav {
 
 /* FOLLOWERS AND FOLLOWING PAGES */
 
-.follow {
+.users {
 
   height: 100%;
   width: 65%;
@@ -895,14 +895,16 @@ nav {
         display: block;
 
         a {
-          text-decoration: none;
-          color: #08c;
+          color: #24c0ab;
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
 
       p {
         font-weight: 300;
-        color: #b3b3b1;
+        color: #eaeaea;
       }
     }
 

@@ -77,9 +77,9 @@
             	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
             </a >
 
-            <a>
-            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
-            </a>
+            <a href=<%= users_path %>>
+		            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
+		    </a>
 
             <a href=<%= edit_user_path(@current_user.id) %>>
             	<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />

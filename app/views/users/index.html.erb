@@ -1,0 +1,150 @@
+<% provide(title: "User Directory") %>
+
+<% if signed_in? %>
+	<div id="profile-wall-wrapper" style="<%= show_user_bg %>">
+		<div class="profile-wall fixed">
+
+			<div class="login-out">
+                <%= link_to(image_tag(asset_path("icon_logout.svg")), logout_path, method: "delete") %>
+            </div>
+			
+			<div class="center profile-hero">	
+
+				<div id="profile-photo">
+					<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+				</div>	
+
+				<div id="username">
+					<h1><%= @user.name %></h1>
+				</div>
+
+				<div id="bio">
+					<p><%= @user.bio %></p>
+				</div>
+				
+				<div>
+					<% if current_user == @user %>
+						<%= button_to "New Episode", new_post_path, id:"new-episode", method: "get" %>
+					<% end %>
+				</div>
+
+				<div>	
+					<% unless !signed_in? || current_user == @user %>
+			  			<% if current_user.following?(@user) %>
+			    			<%= render 'unfollow' %>
+			  			<% else %>
+			    			<%= render 'follow' %>
+			  			<% end %>  		
+					<% end %>	
+				</div>	
+
+				<div id="profile-stats-posts">
+
+					<a href="<%= profile_path(@user.name) %>">
+					   <strong class="stat">
+					    <%= @count %>
+					   </strong>
+					   Episodes
+					</a>				   
+
+					<a href="<%= followers_user_path(@user) %>">
+					  <strong id="followers" class="stat">
+					    <%= @user.followers.count %>
+					  </strong>
+					  Followers
+					</a>	
+
+					<a href="<%= following_user_path(@user) %>">
+					  <strong class="stat">
+					    <%= @user.followed_users.count %>
+					  </strong>
+					  Following
+					</a>
+				
+				</div>
+
+				<div class ="center menu">
+
+		        	<a href=<%= root_path %>>
+		            	<img src=<%= asset_path('icon_home_hover.svg') %> id="icon_home" />
+		            </a>
+
+		            <a href=<%= @current_user.name %>>
+		            	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
+		            </a >
+
+		            <a href=<%= users_path %>>
+		            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
+		            </a>
+
+		            <a href=<%= edit_user_path(@current_user.id) %>>
+		            	<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+		            </a>
+
+		        </div>
+				
+			</div>
+		</div>	
+	</div>
+
+<% else %>
+	
+	<div id="home-wall-wrapper" >
+	    <div class="home-wall fixed">
+
+            <div class="login-out">
+                <%= link_to(image_tag(asset_path("icon_logout.svg")), signin_path, method: "get") %>
+            </div>
+
+            <div class="center home-hero">
+
+                <div id="home-title">
+                    <h1>Tonic</h1>
+                </div>
+
+                <div id="slogan">
+                    <p>Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <div id="button">
+                    <%= button_to "Sign Up Now", signup_path, id:"new-action", method: "get" %>
+                </div>
+
+            </div>
+
+        </div>
+	</div>
+
+<% end %>
+
+<div class="users">
+
+	<div>
+		<h2>User Directory</h2>
+	</div>
+
+	<ul>
+		<% @users.each do |f|  %>
+
+			<li>
+				<div>
+					
+					<div id="follow-photo"> 
+						<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
+					</div>
+
+					<div id="follow-name">
+						<h4><%= link_to f.name, profile_path(f.name) %></h4>
+					</div>
+
+					<div>
+						<p><%= f.bio %></p>
+					</div>					
+
+				</div>
+			</li>
+				
+		<% end %>
+	</ul>
+		
+</div>

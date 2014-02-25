@@ -46,6 +46,11 @@ class UsersController < ApplicationController
     def destroy
     end
 
+    def index
+       @users = User.all
+       @user = current_user
+    end
+
     def following
        @user = User.find(params[:id])
        @users = @user.followed_users
