@@ -4,9 +4,7 @@
 	<div class="profile-wall fixed">
 
     <% if signed_in? %>
-    	<div class="login-out">
-    		<%= link_to(image_tag(asset_path("icon_logout.svg")), logout_path, method: "delete") %>
-        </div>
+
    	<% end %>
 
     <div class="center profile-hero">
@@ -77,9 +75,9 @@
             	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
             </a >
 
-            <a href=<%= users_path %>>
-		            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
-		    </a>
+            <a>
+            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
+            </a>
 
             <a href=<%= edit_user_path(@current_user.id) %>>
             	<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />

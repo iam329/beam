@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+        
         $(".feature").find("button").click(function() {
 
         var vid = $(this).attr("vid");
@@ -32,6 +32,14 @@ $(document).ready(function() {
         $(".track-info").find("#profile-photo").find("img").attr("src", photo);
 
         });
-
+        
+        var ev = {
+            'onStateChange': 'onPlayerStateChange'
+          };
+        $(".youtube-player").attr("events", ev);
+        
+        function onPlayerStateChange(event) {
+        
+                window.alert("dsjfkjsdhfdsf");
+                };
 });
-	
