@@ -165,24 +165,24 @@ p {
     width:100%;
     padding-bottom: 30px;
 
-        img {
+    img {
     width: 25px;
     height: 25px;
-                padding-right:15px;
-        }
+    padding-right:15px;
+    }
 
         #icon_home:hover {
-
+			content:url(<%= asset_path('icon_home_hover.svg') %>);
         }
         #icon_profile:hover {
-
+			content:url(<%= asset_path('icon_profile_hover.svg') %>);
         }
 
         #icon_search:hover {
-
+			content:url(<%= asset_path('icon_search_hover.svg') %>);
         }
         #icon_settings:hover {
-
+			content:url(<%= asset_path('icon_settings_hover.svg') %>);
         }
 }
 
@@ -196,6 +196,12 @@ p {
     width: 25px;
     height: 25px;
 
+  }
+  
+  &:hover {
+  	content:url(<%= asset_path('icon_logout_hover.svg') %>);
+  	width: 25px;
+    height: 25px;
   }
 }
 
