@@ -32,7 +32,9 @@
                                                 <img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
                                         </a>
                                                 <img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
-                                                <img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+                                        <a href=<%= edit_user_path(@current_user.id) %>>
+            								<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+            							</a>
 
                                 </div>
 
@@ -79,12 +81,18 @@
                         <% @count = @count_all %>
 
         <% end %>
+        
+        <div id="stage-background">
+			</div>
+	
+		<div id="stage-border">
+		</div>
+		
+		<div id="latest-episode">
+        	<h2>Feed</h2>
+        </div>
 
         <div class="stage">
-
-                <div div="latest-episode">
-                        <h2>Feed</h2>
-                </div>
 
                 <% if @count>0 && @latestpost.yt? %>
 
