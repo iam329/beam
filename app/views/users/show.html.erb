@@ -2,202 +2,210 @@
 
 <div id="profile-wall-wrapper" style="<%= show_user_bg %>">
 	<div class="profile-wall fixed">
-		
-		<% if signed_in? %>
-			<div class="logout">
-					<%= link_to(image_tag(asset_path("icon_logout.svg")), logout_path, method: "delete") %>
-			</div>
-		<% end %>
-		
-		<div class="center profile-hero">	
 
-			<div id="profile-photo">
-				<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
-			</div>	
+    <% if signed_in? %>
+    	<div class="login-out">
+    		<%= link_to(image_tag(asset_path("icon_logout.svg")), logout_path, method: "delete") %>
+        </div>
+   	<% end %>
 
-			<div id="username">
-				<h1><%= @user.name %></h1>
-			</div>
+    <div class="center profile-hero">
 
-			<div id="bio">
-				<p><%= @user.bio %></p>
-			</div>
-			
-			<div id="button">
-				<% if current_user == @user %>
-					<%= button_to "New Episode", new_post_path, id:"new-action", method: "get" %>
-				<% end %>
-			</div>
+    	<div id="profile-photo">
+    		<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+    	</div>
 
-			<div>	
-				<% unless !signed_in? || current_user == @user %>
-		  			<% if current_user.following?(@user) %>
-		    			<%= render 'unfollow' %>
-		  			<% else %>
-		    			<%= render 'follow' %>
-		  			<% end %>  		
-				<% end %>	
-			</div>	
+    	<div id="username">
+    		<h1><%= @user.name %></h1>
+    	</div>
 
-			<div id="profile-stats-posts">
+    	<div id="bio">
+    		<p><%= @user.bio %></p>
+    	</div>
 
-				<a href="">
-				   <strong class="stat">
-				    <%= @count %>
-				   </strong>
-				   Episodes
-				</a>				   
+    	<div id="button">
+    		<% if current_user == @user %>
+        		<%= button_to "New Episode", new_post_path, id:"new-action", method: "get" %>
+        	<% end %>
+    	</div>
 
-				<a href="<%= followers_user_path(@user) %>">
-				  <strong id="followers" class="stat">
-				    <%= @user.followers.count %>
-				  </strong>
-				  Followers
-				</a>	
+    	<div>
+    		<% unless !signed_in? || current_user == @user %>
+        		<% if current_user.following?(@user) %>
+            		<%= render 'unfollow' %>
+            	<% else %>
+                	<%= render 'follow' %>
+            	<% end %>
+        	<% end %>
+    	</div>
 
-				<a href="<%= following_user_path(@user) %>">
-				  <strong class="stat">
-				    <%= @user.followed_users.count %>
-				  </strong>
-				  Following
-				</a>
-			
-			</div>
-			
+    	<div id="profile-stats-posts">
+
+    		<a href="">
+        		<strong class="stat">
+            		<%= @count %>
+            	</strong>
+            	Episodes
+        	</a>
+
+        	<a href="<%= followers_user_path(@user) %>">
+        		<strong id="followers" class="stat">
+        			<%= @user.followers.count %>
+            	</strong>
+            	Followers
+        	</a>
+
+        	<a href="<%= following_user_path(@user) %>">
+        		<strong class="stat">
+            		<%= @user.followed_users.count %>
+            	</strong>
+           		Following
+        	</a>
+
 		</div>
 		
-		<div class ="center menu">
-			
-			<a href=<%= root_path %>>
-				<img src=<%= asset_path('icon_home_hover.svg') %> width="8%" height="8%" id="icon_home" />
-			</a>
-			<a href=<%= @current_user.name %>>
-				<img src=<%= asset_path('icon_profile.svg') %> width="5.5%" height="5.5%" id="icon_profile" />
-			</a>
-				<img src=<%= asset_path('icon_search.svg') %> width="7%" height="7%" id="icon_search" />
-				<img src=<%= asset_path('icon_settings.svg') %> width="7%" height="7%" id="icon_settings" />
-			
-		</div>
-		
-	</div>	
+	</div>
 
-</div>	
+    <% if signed_in? %>
+    	<div class ="center menu">
+
+        	<a href=<%= root_path %>>
+            	<img src=<%= asset_path('icon_home_hover.svg') %> id="icon_home" />
+            </a>
+
+            <a href=<%= @current_user.name %>>
+            	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
+            </a >
+
+            <a>
+            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
+            </a>
+
+            <a href=<%= edit_user_path(@current_user.id) %>>
+            	<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+            </a>
+
+        </div>
+    <% end %>
+    </div>
+
+</div>
 
 <div class="feature">
 
-	<% if @count > 0 %>
+	<div id="latest-episode">
+    	<h2>Episodes</h2>
+    </div>
 
-		<div div="latest-episode">
-			<h2>Episodes</h2>
-		</div>
-	
-	<div >	
-		<% if @latestpost.yt? && current_user!=@user %>
+    <% if @count > 0 %>
 
-			<section class="gem">
-				<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
-				</iframe>
+    	<div >
+        	<% if @latestpost.yt? && current_user!=@user %>
 
-				<section class="track-info">
-					<div id="episode-number">
-						Episode <%= @count %>
-					</div>
+            	<section class="gem">
+                	<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
+                    </iframe>
 
-					<div id="track-title">
-						<h4><%= @latestpost.title %></h4>
-					</div>
+                	<section class="track-info">
+                    	<div id="episode-number">
+                        	Episode <%= @count %>
+                        </div>
 
-					<div id="artist-name">
-						By <%= @latestpost.artist %>
-					</div>
-								
-					<div id="blurb">
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
-					</div>
+                        <div id="track-title">
+                        	<h4><%= @latestpost.title %></h4>
+                       	</div>
 
-					<div id="timestamp">
-						<%= time_ago_in_words(@latestpost.created_at) %> ago
-					</div>
-					
-					<div id="share">
-						<%= social_share_button_tag(@user) %>
-					</div>
-									
-				</section>
-			</section>	
+                        <div id="artist-name">
+                        	By <%= @latestpost.artist %>
+                        </div>
 
-			<% elsif @latestpost.yt? %>
-						
-				<section class="gem">
-					<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
-					</iframe>
+                        <div id="blurb">
+                        	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+                        </div>
 
-						<section class="track-info">
-							<div id="episode-number">
-									Episode <%=@count%>
-							</div>
+                        <div id="timestamp">
+                        	<%= time_ago_in_words(@latestpost.created_at) %> ago
+                        </div>
 
-							<div id="track-title">
-								<h4><%= @latestpost.title %></h4>
-							</div>
+                        <div id="share">
+                        	<%= social_share_button_tag(@user) %>
+                        </div>
 
-							<div id="artist-name">
-								By <%= @latestpost.artist %>
-							</div>
-								
-							<div id="blurb">
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
-							</div>
+                    </section>
+                </section>
 
-							<div id="timestamp">
-									<%= time_ago_in_words(@latestpost.created_at) %> ago
-							</div>
-							
-							<div id="share">
-								<%= social_share_button_tag(@user) %>
-							</div>
-									
-						</section>
-				</section>	
-		<% end %>
-		</div>	
+                <% elsif @latestpost.yt? %>
 
-		<ul>
-			<% @posts.each_with_index do |p,i|  %>
+                	<section class="gem">
+                    	<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
+                        </iframe>
 
-			<% ep = @count-i %>
+                        <section class="track-info">
+                        	<div id="episode-number">
+                            	Episode <%=@count%>
+                            </div>
 
-			<li>
-				<div class="episode">
+                            <div id="track-title">
+                            	<h4><%= @latestpost.title %></h4>
+                            </div>
 
-					<% if p.yt? %>
+                            <div id="artist-name">
+                            	By <%= @latestpost.artist %>
+                            </div>
 
-							<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >
-								
-								<div id="thumb-photo">
-									<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %> 
-								</div>
+                            <div id="blurb">
+                            	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+                            </div>
 
-								<div id="thumb-episode-number">
-									Episode <%= ep %>
-								</div>
-								
-								<div id="thumb-title">
-									<%= p.title %> 
-								</div>
+                            <div id="timestamp">
+                            	<%= time_ago_in_words(@latestpost.created_at) %> ago
+                            </div>
 
-								<div id="thumb-artist">
-									<%= p.artist %> 
-								</div>
+                            <div id="share">
+                            	<%= social_share_button_tag(@user) %>
+                            </div>
 
-							</button>
-					<% end %>	
+                         </section>
+                </section>
+                <% end %>
+          </div>
 
-				</div>
-			</li>
-				
-			<% end %>
-		</ul>
+          <ul>
+          	<% @posts.each_with_index do |p,i|  %>
 
-	<% end %>	
+            <% ep = @count-i %>
+
+            <li>
+            	<div class="episode">
+
+                <% if p.yt? %>
+
+                	<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >
+
+                    	<div id="thumb-photo">
+                    		<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
+                    	</div>
+
+                    	<div id="thumb-episode-number">
+                    		Episode <%= ep %>
+                    	</div>
+
+                    	<div id="thumb-title">
+                    		<%= p.title %>
+                    	</div>
+
+                    	<div id="thumb-artist">
+                    		<%= p.artist %>
+                    	</div>
+
+                  	</button>
+                <% end %>
+
+                </div>
+            </li>
+
+            <% end %>
+          	</ul>
+
+        <% end %>
 </div>

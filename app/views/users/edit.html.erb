@@ -2,69 +2,46 @@
 
 <div class="user-forms">
 	<div id="signup">
-	    <nav>
-	    	<ul class="nav nav-pills pull-left">
-	        	<li><%= link_to "Home", root_path %></li> 	
-	         </ul>
-	   		 
-	   		 <% if signed_in? %>
-		    <ul class="nav nav-pills pull-right">
-		       	 <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu pull-right">
-                <li><%= link_to "Profile", profile_path(current_user.name) %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li>
-                  <%= link_to "Log Out", logout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>	
-		    </ul>
-	   	<% end %>	 
 
-	     </nav>
-	  
-	<div class="center">
+		<div class="center">
 
-		<h1>Update Profile</h1>
+        	<h1>Update Profile</h1>
 
-			<%= form_for @user, :html => { :multipart => true } do |f| %>
+            	<%= form_for @user, :html => { :multipart => true } do |f| %>
 
-				<%= render 'shared/error_messages', object: f.object %>
-						
-					<div class="form-divider">
-						<%= f.text_field :name, placeholder: "Username" %>
-					</div>
-							
-					<div class="form-divider">	
-						<%= f.text_field :email, placeholder: "Email" %>
-					</div>
+                <%= render 'shared/error_messages', object: f.object %>
 
-					<div class="form-divider">	
-						<%= f.text_field :bio, placeholder: "Bio" %>
-					</div>
+                <div class="form-divider">
+                	<%= f.text_field :name, placeholder: "Username" %>
+                </div>
 
-					<div class="form-divider">	
-						<%= f.file_field :photo, placeholder: "Profile Photo" %>
-					</div>	
+                <div class="form-divider">
+                	<%= f.text_field :email, placeholder: "Email" %>
+                </div>
 
-					<div class="form-divider">	
-						<%= f.file_field :wallpaper, placeholder: "Wallpaper Photo" %>
-					</div>
+                <div class="form-divider">
+                	<%= f.text_field :bio, placeholder: "Bio" %>
+                </div>
 
-					<div class="form-divider">
-						<%= f.password_field :password, placeholder: "Password" %>
-					</div>
-							
-					<div class="form-divider">
-						<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-					</div>		
+                <div class="form-divider">
+                	<%= f.file_field :photo, placeholder: "Profile Photo" %>
+                </div>
 
-					<%= f.submit "Let's Go!" %>		
+                <div class="form-divider">
+                	<%= f.file_field :wallpaper, placeholder: "Wallpaper Photo" %>
+                </div>
 
-					<% end %>	
+                <div class="form-divider">
+                	<%= f.password_field :password, placeholder: "Password" %>
+                </div>
+
+                <div class="form-divider">
+                	<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+                </div>
+
+                <%= f.submit "Let's Go!" %>
+
+                <% end %>
 		</div>
-	</div>		
+	</div>
 </div>

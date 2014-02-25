@@ -2,40 +2,40 @@
 
 <div class="user-forms">
 	<div id="signup">
-	    <nav>
-	    	<ul class="nav nav-pills pull-left">
-	        	<li><%= link_to "Home", root_path %></li> 	
-	         </ul>
-	   		 
-	     </nav>
-	  
-		<div class="center">
+    	<nav>
+        	<ul class="nav nav-pills pull-left">
+            	<li><%= link_to "Home", root_path %></li>
+            </ul>
 
-			<h1>Signup</h1>
+        </nav>
 
-				<%= form_for (@user) do |f| %>
+    	<div class="center">
 
-					<%= render 'shared/error_messages', object: f.object %>
-							
-						<div class="form-divider">
-							<%= f.text_field :name, placeholder: "Username" %>
-						</div>
-							
-						<div class="form-divider">	
-							<%= f.text_field :email, placeholder: "Email" %>
-						</div>
-							
-						<div class="form-divider">
-							<%= f.password_field :password, placeholder: "Password" %>
-						</div>
-							
-						<div class="form-divider">
-							<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-						</div>		
+    	<h1>Signup</h1>
 
-						<%= f.submit "Let's Go!" %>		
+    	<%= form_for (@user) do |f| %>
 
-					<% end %>	
-		</div>
-	</div>		
+    	<%= render 'shared/error_messages', object: f.object %>
+
+    	<div class="form-divider">
+    		<%= f.text_field :name, placeholder: "Username" %>
+    	</div>
+
+   	 	<div class="form-divider">
+   		     <%= f.text_field :email, placeholder: "Email" %>
+  	    </div>
+
+    	<div class="form-divider">
+        	<%= f.password_field :password, placeholder: "Password" %>
+    	</div>
+
+    	<div class="form-divider">
+        	<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+    	</div>
+
+    	<%= f.submit "Let's Go!" %>
+
+    	<% end %>
+    	</div>
+ 	</div>
 </div>
