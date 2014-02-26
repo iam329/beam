@@ -20,11 +20,14 @@ $(document).ready(function() {
             var track = Number($(this).attr("track"));
             //$(".youtube-player").attr("src", vid);
             changeHomeStageInfo(this);
-            player.playVideoAt(track);
+
+		    player.playVideoAt(track);
+
         });
       
 });
 
+// Ran asychronously with the script in home
 var player;
 function onYouTubePlayerAPIReady() {
     player = new YT.Player('ytplayer', {
