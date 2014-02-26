@@ -17,21 +17,10 @@ $(document).ready(function() {
 
         $(".home-feature").find("button").click(function() {
 
-        var vid = $(this).attr("vid");
-        var title = $(this).attr("title");
-        var artist = $(this).attr("artist");
-        var created = $(this).attr("created");
-        var photo = $(this).attr("photo");
-        var username = $(this).attr("user");
-
-        //$(".youtube-player").attr("src", vid);
-        $(".track-info").find("#track-title").find("h4").text(title);
-        $(".track-info").find("#artist-name").text(artist);
-        $(".track-info").find("#timestamp").find("#username").find("a").text(username);
-        $(".track-info").find("#timestamp").find("#time").text("Posted "+created+ " ago by ");
-        $(".track-info").find("#profile-photo").find("img").attr("src", photo);
-
-		//player.playVideoAt(index:3);
+            var track = $(this).attr("track");
+            //$(".youtube-player").attr("src", vid);
+            changeHomeStageInfo(this);
+		    player.playVideoAt(Number(track));
 
         });
       
@@ -50,9 +39,7 @@ function onYouTubePlayerAPIReady() {
 function onPlayerStateChange(event) {
 	if(event.data == -1) {
 		var gem = document.getElementById("button"+player.getPlaylistIndex());
-		changeStageInfo(gem);
-
-	
+		changeHomeStageInfo(gem);
 	}
 };
 
@@ -60,7 +47,7 @@ function onPlayerReady(event) {
   //window.alert(player.getPlaylistIndex());
 };
 
-function changeStageInfo(gem) {
+function changeHomeStageInfo(gem) {
 	$(".track-info").find("#track-title").find("h4").text(gem.getAttribute("title"));
 	//window.alert(gem.artist);
     $(".track-info").find("#artist-name").text(gem.getAttribute("artist"));
