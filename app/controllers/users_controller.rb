@@ -49,6 +49,7 @@ class UsersController < ApplicationController
     def index
        @users = User.all
        @user = current_user
+       @count = @user.posts.count
     end
 
     def following

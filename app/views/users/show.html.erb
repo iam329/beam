@@ -5,6 +5,16 @@
 
     <% if signed_in? %>
 
+        <div class="login-out">
+            <%= link_to(image_tag(asset_path("icon_logout.svg"), id:"lo"), logout_path, method: "delete") %>
+        </div>
+
+    <% else %>
+    
+        <div class="login-out">
+            <%= link_to(image_tag(asset_path("icon_logout.svg"), id: "li"), signin_path, method: "get") %>
+        </div>    
+
    	<% end %>
 
     <div class="center profile-hero">
@@ -75,7 +85,7 @@
             	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
             </a >
 
-            <a>
+            <a href=<%= users_path %>>
             	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
             </a>
 
