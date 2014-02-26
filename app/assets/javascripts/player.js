@@ -75,7 +75,6 @@ function turnOffButton(gem) {
 
 function turnOffAllButtons() {
     var all = document.getElementsByClassName('menu-item');
-    //console.log(all);
     for (var i = 0; i < all.length; i++) {
         turnOffButton(all[i]);
     }

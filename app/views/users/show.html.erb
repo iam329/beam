@@ -155,7 +155,9 @@
                         </div>
 
                         <div id="share">
-                            <%= social_share_button_tag(@user) %>
+
+                        	<%= social_share_button_tag("Tonic", :url => profile_path(@user.name)) %>
+
                         </div>
 
                     </section>
