@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 
-<div id="profile-wall-wrapper" style="<%= show_user_bg %>" >
-	<div class="profile-wall fixed">
+<div id="profile-wall-wrapper" style="<%= show_user_bg %>">
+    <div class="profile-wall fixed">
 
     <% if signed_in? %>
 
@@ -15,82 +15,82 @@
             <%= link_to(image_tag(asset_path("icon_logout.svg"), id: "li"), signin_path, method: "get") %>
         </div>    
 
-   	<% end %>
+    <% end %>
 
     <div class="center profile-hero">
 
-    	<div id="profile-photo">
-    		<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
-    	</div>
+        <div id="profile-photo">
+            <%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+        </div>
 
-    	<div id="username">
-    		<h1><%= @user.name %></h1>
-    	</div>
+        <div id="username">
+            <h1><%= @user.name %></h1>
+        </div>
 
-    	<div id="bio">
-    		<p><%= @user.bio %></p>
-    	</div>
+        <div id="bio">
+            <p><%= @user.bio %></p>
+        </div>
 
-    	<div id="button">
-    		<% if current_user == @user %>
-        		<%= button_to "New Episode", new_post_path, id:"new-action", method: "get" %>
-        	<% end %>
-    	</div>
+        <div id="button">
+            <% if current_user == @user %>
+                <%= button_to "New Episode", new_post_path, id:"new-action", method: "get" %>
+            <% end %>
+        </div>
 
-    	<div>
-    		<% unless !signed_in? || current_user == @user %>
-        		<% if current_user.following?(@user) %>
-            		<%= render 'unfollow' %>
-            	<% else %>
-                	<%= render 'follow' %>
-            	<% end %>
-        	<% end %>
-    	</div>
+        <div>
+            <% unless !signed_in? || current_user == @user %>
+                <% if current_user.following?(@user) %>
+                    <%= render 'unfollow' %>
+                <% else %>
+                    <%= render 'follow' %>
+                <% end %>
+            <% end %>
+        </div>
 
-    	<div id="profile-stats-posts">
+        <div id="profile-stats-posts">
 
-    		<a href="">
-        		<strong class="stat">
-            		<%= @count %>
-            	</strong>
-            	Episodes
-        	</a>
+            <a href="">
+                <strong class="stat">
+                    <%= @count %>
+                </strong>
+                Episodes
+            </a>
 
-        	<a href="<%= followers_user_path(@user) %>">
-        		<strong id="followers" class="stat">
-        			<%= @user.followers.count %>
-            	</strong>
-            	Followers
-        	</a>
+            <a href="<%= followers_user_path(@user) %>">
+                <strong id="followers" class="stat">
+                    <%= @user.followers.count %>
+                </strong>
+                Followers
+            </a>
 
-        	<a href="<%= following_user_path(@user) %>">
-        		<strong class="stat">
-            		<%= @user.followed_users.count %>
-            	</strong>
-           		Following
-        	</a>
+            <a href="<%= following_user_path(@user) %>">
+                <strong class="stat">
+                    <%= @user.followed_users.count %>
+                </strong>
+                Following
+            </a>
 
-		</div>
-		
-	</div>
+        </div>
+
+    </div>
 
     <% if signed_in? %>
-    	<div class ="center menu">
+        <div class ="center menu">
 
-        	<a href=<%= root_path %>>
-            	<img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
+            <a href=<%= root_path %>>
+                <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
             </a>
 
             <a href=<%= @current_user.name %>>
-            	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
+                <img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
             </a >
 
             <a href=<%= users_path %>>
-            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
+                <img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
             </a>
 
             <a href=<%= edit_user_path(@current_user.id) %>>
-            	<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+                <img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
             </a>
 
         </div>
@@ -100,15 +100,15 @@
 </div>
 
 <div class="feature">
-	
-	<div id="stage-background">
-	</div>
-	
-	<div id="stage-border">
-	</div>
 
-	<div id="latest-episode">
-    	<h2>Episodes</h2>
+    <div id="stage-background">
+    </div>
+
+    <div id="stage-border">
+    </div>
+
+    <div id="latest-episode">
+        <h2>Episodes</h2>
     </div>
 
     <% if @count > 0 %>
@@ -120,8 +120,8 @@
                 <% end %>
             <% end %>
 
-    	<div >
-            	<section class="gem">
+        <div >
+                <section class="gem">
                     <script type="text/javascript">
                         // This code loads the IFrame Player API code asynchronously.
                         var tag = document.createElement('script');
@@ -130,32 +130,32 @@
                         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                     </script>
 
-                	<iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
-                	<section class="track-info">
-                    	<div id="episode-number">
-                        	Episode <%= @count %>
+                    <section class="track-info">
+                        <div id="episode-number">
+                            Episode <%= @count %>
                         </div>
 
                         <div id="track-title">
-                        	<h4><%= @latestpost.title %></h4>
-                       	</div>
+                            <h4><%= @latestpost.title %></h4>
+                        </div>
 
                         <div id="artist-name">
-                        	By <%= @latestpost.artist %>
+                            By <%= @latestpost.artist %>
                         </div>
 
                         <div id="blurb">
-                        	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
                         </div>
 
                         <div id="timestamp">
-                        	<%= time_ago_in_words(@latestpost.created_at) %> ago
+                            <%= time_ago_in_words(@latestpost.created_at) %> ago
                         </div>
 
                         <div id="share">
-                        	<%= social_share_button_tag(@user) %>
+                            <%= social_share_button_tag(@user) %>
                         </div>
 
                     </section>
@@ -164,47 +164,47 @@
           </div>
 
           <ul>
-          	<% @posts.each_with_index do |p,i|  %>
+            <% @posts.each_with_index do |p,i|  %>
 
             <% ep = @count-i %>
 
             <li>
-            	<div class="episode">
+                <div class="episode">
 
                 <% if p.yt? %>
 
-                	<button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>">                                        
+                    <button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>">                                        
 
 
                         <div id="thumb-photo">
-                    		<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
-                    	    
+                            <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
+                            
                             <% if current_user == p.user %>
                                 <%= link_to(image_tag(asset_path("icon_close.svg"), size:"10x10"), p, method: :delete,
                                      data: { confirm: "Are you sure you want to delete this episode?" }, class: "close" ) %>
                             <% end %>         
                         </div>
 
-                    	<div id="thumb-episode-number">
-                    		Episode <%= ep %>
-                    	</div>
+                        <div id="thumb-episode-number">
+                            Episode <%= ep %>
+                        </div>
 
-                    	<div id="thumb-title">
-                    		<%= p.title %>
-                    	</div>
+                        <div id="thumb-title">
+                            <%= p.title %>
+                        </div>
 
-                    	<div id="thumb-artist">
-                    		<%= p.artist %>
-                    	</div>
+                        <div id="thumb-artist">
+                            <%= p.artist %>
+                        </div>
 
-                  	</button>
+                    </button>
                 <% end %>
 
                 </div>
             </li>
 
             <% end %>
-          	</ul>
+            </ul>
 
         <% end %>
 </div>

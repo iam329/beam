@@ -16,11 +16,8 @@ $(document).ready(function() {
 
             var track = Number($(this).attr("track"));
             //$(".youtube-player").attr("src", vid);
-
-            changeHomeStageInfo(this);
-
-		    player.playVideoAt(track);
-
+            changeStageInfo(this);
+            player.playVideoAt(track);
         });
       
 });
@@ -37,14 +34,13 @@ function onYouTubePlayerAPIReady() {
 };
 
 function onPlayerStateChange(event) {
-
-	if(event.data == -1) {
-		var gem = document.getElementById("button"+player.getPlaylistIndex());
-		changeStageInfo(gem);
+    if(event.data == -1) {
+        var gem = document.getElementById("button"+player.getPlaylistIndex());
+        changeStageInfo(gem);
         turnOffAllButtons();
         // Turn on Button
         turnOnButton(gem);
-	}
+    }
 };
 
 function onPlayerReady(event) {
@@ -53,11 +49,9 @@ function onPlayerReady(event) {
     turnOnButton(gem);
 };
 
-
-function changeHomeStageInfo(gem) { 
+function changeStageInfo(gem) {
     $(".track-info").find("#track-title").find("h4").text(gem.getAttribute("title"));
     //window.alert(gem.artist);
-
     $(".track-info").find("#artist-name").text(gem.getAttribute("artist"));
     $(".track-info").find("#timestamp").find("#username").find("a").text(gem.getAttribute("user"));
     $(".track-info").find("#timestamp").find("#time").text("Posted "+gem.getAttribute("created")+ " ago by ");
