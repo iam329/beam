@@ -50,8 +50,8 @@ function onYouTubePlayerAPIReady() {
 function onPlayerStateChange(event) {
 	if(event.data == -1) {
 		var gem = document.getElementById("button"+player.getPlaylistIndex());
-		//window.alert(gem.artist);
 		changeStageInfo(gem);
+
 	
 	}
 };
@@ -61,11 +61,10 @@ function onPlayerReady(event) {
 };
 
 function changeStageInfo(gem) {
-	$(".track-info").find("#track-title").find("h4").text(gem.title);
+	$(".track-info").find("#track-title").find("h4").text(gem.getAttribute("title"));
 	//window.alert(gem.artist);
-    $(".track-info").find("#artist-name").text(gem.artist);
-    //$(".track-info").find("#timestamp").find("#username").find("a").text(gem.username);
-    //$(".track-info").find("#timestamp").find("#time").text("Posted "+gem.created+ " ago by ");
-    //$(".track-info").find("#profile-photo").find("img").attr("src", gem.photo);
-
+    $(".track-info").find("#artist-name").text(gem.getAttribute("artist"));
+    $(".track-info").find("#timestamp").find("#username").find("a").text(gem.getAttribute("user"));
+    $(".track-info").find("#timestamp").find("#time").text("Posted "+gem.getAttribute("created")+ " ago by ");
+    $(".track-info").find("#profile-photo").find("img").attr("src", gem.getAttribute("photo"));
 };
