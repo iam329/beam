@@ -108,9 +108,18 @@
 
             <% if @count>0 && @latestpost.yt? %>
 
-                <section class="gem">
-                    <iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1" %> allowfullscreen frameborder="0">
+                 <section class="gem">
+                     <script type="text/javascript">
+                        // This code loads the IFrame Player API code asynchronously.
+						var tag = document.createElement('script');
+						tag.src = "http://www.youtube.com/player_api";
+						var firstScriptTag = document.getElementsByTagName('script')[0];
+						firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    </script>
+                        	
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
+
 
                     <section class="track-info">
 
@@ -155,9 +164,9 @@
 
                         <% if p.yt? %>
 
-                            <button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= p.user.photo.url %>" user="<%= p.user.name %>">
+                            <button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%= ep %>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= p.user.photo.url %>" user="<%= p.user.name %>">
 
-                                 <div id="thumb-photo">
+                                <div id="thumb-photo">
                                     <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
                                 </div>
 
