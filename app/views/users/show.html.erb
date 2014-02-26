@@ -113,11 +113,24 @@
 
     <% if @count > 0 %>
 
-    	<div >
-        	<% if @latestpost.yt? && current_user!=@user %>
+    <% @playlist = [] %>
+            <% @posts.each_with_index do |p,i| %>
+                <% if @latestpost != p %>
+                    <% @playlist << p.ytcode %>
+                <% end %>
+            <% end %>
 
+    	<div >
             	<section class="gem">
-                	<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
+                    <script type="text/javascript">
+                        // This code loads the IFrame Player API code asynchronously.
+                        var tag = document.createElement('script');
+                        tag.src = "http://www.youtube.com/player_api";
+                        var firstScriptTag = document.getElementsByTagName('script')[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    </script>
+
+                	<iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
                 	<section class="track-info">
@@ -148,40 +161,6 @@
                     </section>
                 </section>
 
-                <% elsif @latestpost.yt? %>
-
-                	<section class="gem">
-                    	<iframe name="main-player" class="youtube-player" type="text/html" width="540" height="304" src="<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" allowfullscreen frameborder="0">
-                        </iframe>
-
-                        <section class="track-info">
-                        	<div id="episode-number">
-                            	Episode <%=@count%>
-                            </div>
-
-                            <div id="track-title">
-                            	<h4><%= @latestpost.title %></h4>
-                            </div>
-
-                            <div id="artist-name">
-                            	By <%= @latestpost.artist %>
-                            </div>
-
-                            <div id="blurb">
-                            	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
-                            </div>
-
-                            <div id="timestamp">
-                            	<%= time_ago_in_words(@latestpost.created_at) %> ago
-                            </div>
-
-                            <div id="share">
-                            	<%= social_share_button_tag(@user) %>
-                            </div>
-
-                         </section>
-                </section>
-                <% end %>
           </div>
 
           <ul>
@@ -194,7 +173,7 @@
 
                 <% if p.yt? %>
 
-                	<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >                                        
+                	<button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>">                                        
 
 
                         <div id="thumb-photo">
