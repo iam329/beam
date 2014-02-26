@@ -5,6 +5,16 @@
 
     <% if signed_in? %>
 
+        <div class="login-out">
+            <%= link_to(image_tag(asset_path("icon_logout.svg"), id:"lo"), logout_path, method: "delete") %>
+        </div>
+
+    <% else %>
+    
+        <div class="login-out">
+            <%= link_to(image_tag(asset_path("icon_logout.svg"), id: "li"), signin_path, method: "get") %>
+        </div>    
+
    	<% end %>
 
     <div class="center profile-hero">
@@ -75,7 +85,7 @@
             	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
             </a >
 
-            <a>
+            <a href=<%= users_path %>>
             	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
             </a>
 
@@ -184,11 +194,17 @@
 
                 <% if p.yt? %>
 
-                	<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >
+                	<button class="menu-item" href="javascript:;" target="main-player" data-remote="true" vid= "<%= "http://www.youtube.com/embed/"+p.ytcode+"?autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3" %>" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" >                                        
 
-                    	<div id="thumb-photo">
+
+                        <div id="thumb-photo">
                     		<%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
-                    	</div>
+                    	    
+                            <% if current_user == p.user %>
+                                <%= link_to(image_tag(asset_path("icon_close.svg"), size:"10x10"), p, method: :delete,
+                                     data: { confirm: "Are you sure you want to delete this episode?" }, class: "close" ) %>
+                            <% end %>         
+                        </div>
 
                     	<div id="thumb-episode-number">
                     		Episode <%= ep %>
