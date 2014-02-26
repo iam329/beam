@@ -24,22 +24,48 @@ $(document).ready(function() {
         var photo = $(this).attr("photo");
         var username = $(this).attr("user");
 
-        $(".youtube-player").attr("src", vid);
+        //$(".youtube-player").attr("src", vid);
         $(".track-info").find("#track-title").find("h4").text(title);
         $(".track-info").find("#artist-name").text(artist);
         $(".track-info").find("#timestamp").find("#username").find("a").text(username);
         $(".track-info").find("#timestamp").find("#time").text("Posted "+created+ " ago by ");
         $(".track-info").find("#profile-photo").find("img").attr("src", photo);
 
+		//player.playVideoAt(index:3);
+
         });
-        
-        var ev = {
-            'onStateChange': 'onPlayerStateChange'
-          };
-        $(".youtube-player").attr("events", ev);
-        
-        function onPlayerStateChange(event) {
-        
-                window.alert("dsjfkjsdhfdsf");
-                };
+      
 });
+
+var player;
+function onYouTubePlayerAPIReady() {
+	player = new YT.Player('ytplayer', {
+    events: {
+      'onStateChange': onPlayerStateChange,
+      'onReady': onPlayerReady
+    }
+ });
+};
+
+function onPlayerStateChange(event) {
+	if(event.data == -1) {
+		var gem = document.getElementById("button"+player.getPlaylistIndex());
+		//window.alert(gem.artist);
+		changeStageInfo(gem);
+	
+	}
+};
+
+function onPlayerReady(event) {
+  //window.alert(player.getPlaylistIndex());
+};
+
+function changeStageInfo(gem) {
+	$(".track-info").find("#track-title").find("h4").text(gem.title);
+	//window.alert(gem.artist);
+    $(".track-info").find("#artist-name").text(gem.artist);
+    //$(".track-info").find("#timestamp").find("#username").find("a").text(gem.username);
+    //$(".track-info").find("#timestamp").find("#time").text("Posted "+gem.created+ " ago by ");
+    //$(".track-info").find("#profile-photo").find("img").attr("src", gem.photo);
+
+};
