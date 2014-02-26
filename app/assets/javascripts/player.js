@@ -17,10 +17,10 @@ $(document).ready(function() {
 
         $(".home-feature").find("button").click(function() {
 
-            var track = $(this).attr("track");
+            var track = Number($(this).attr("track"));
             //$(".youtube-player").attr("src", vid);
             changeHomeStageInfo(this);
-		    player.playVideoAt(Number(track));
+		    player.playVideoAt(track);
 
         });
       
