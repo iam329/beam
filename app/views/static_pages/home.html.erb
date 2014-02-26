@@ -38,8 +38,8 @@
                     </a>
                                         
                     <a href=<%= edit_user_path(@current_user.id) %>>
-            			<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
-            		</a>
+                        <img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+                    </a>
 
                 </div>
 
@@ -87,36 +87,36 @@
     <% end %>
         
     <div id="stage-background">
-	</div>
-	
-	<div id="stage-border">
-	</div>
-		
-	<div id="latest-episode">
-       	<h2>Feed</h2>
+    </div>
+    
+    <div id="stage-border">
+    </div>
+        
+    <div id="latest-episode">
+        <h2>Feed</h2>
     </div>
 
     <div class="stage">
-        	
-    	<% @playlist = [] %>
-        	<% @feed_items.each_with_index do |p,i| %>
-        		<% if @latestpost != p %>
-        			<% @playlist << p.ytcode %>
-        		<% end %>
+            
+        <% @playlist = [] %>
+            <% @feed_items.each_with_index do |p,i| %>
+                <% if @latestpost != p %>
+                    <% @playlist << p.ytcode %>
+                <% end %>
             <% end %>
-        		
+                
 
             <% if @count>0 && @latestpost.yt? %>
 
                  <section class="gem">
                      <script type="text/javascript">
                         // This code loads the IFrame Player API code asynchronously.
-						var tag = document.createElement('script');
-						tag.src = "http://www.youtube.com/player_api";
-						var firstScriptTag = document.getElementsByTagName('script')[0];
-						firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                        var tag = document.createElement('script');
+                        tag.src = "http://www.youtube.com/player_api";
+                        var firstScriptTag = document.getElementsByTagName('script')[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                     </script>
-                        	
+                            
                     <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 

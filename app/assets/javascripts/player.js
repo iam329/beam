@@ -20,9 +20,7 @@ $(document).ready(function() {
             var track = Number($(this).attr("track"));
             //$(".youtube-player").attr("src", vid);
             changeHomeStageInfo(this);
-
             player.playVideoAt(track);
-
         });
       
 });
@@ -48,7 +46,7 @@ function onPlayerReady(event) {
   //window.alert(player.getPlaylistIndex());
 };
 
-function changeHomeStageInfo(gem) {
+function changeHomeStageInfo(gem) { 
     $(".track-info").find("#track-title").find("h4").text(gem.getAttribute("title"));
     //window.alert(gem.artist);
     $(".track-info").find("#artist-name").text(gem.getAttribute("artist"));
