@@ -111,6 +111,7 @@
         <h2>Episodes</h2>
     </div>
 
+    
     <% if @count > 0 %>
 
     <% @playlist = [] %>
@@ -120,11 +121,10 @@
                 <% end %>
             <% end %>
 
-        <div >
+        <div class="gem-wrapper">
                 <section class="gem">
-                   
-
-                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
+                
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
                     <section class="track-info">
@@ -144,17 +144,18 @@
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
                         </div>
 
-                        <div id="timestamp">
-                            <%= time_ago_in_words(@latestpost.created_at) %> ago
-                        </div>
+                        <div id="info-footer">
+                            <span id="timestamp">
+                                <%= time_ago_in_words(@latestpost.created_at) %> ago
+                            </span>
 
-                        <div id="share">
-                            <%= social_share_button_tag("Tonic", :url => profile_path(@user.name)) %>
-                        </div>
+                            <span id="share">
+                                <%= social_share_button_tag("Tonic", :url => profile_path(@user.name)) %>
+                            </span>
+                        </div>    
 
                     </section>
                 </section>
-
           </div>
 
           <ul class="center">

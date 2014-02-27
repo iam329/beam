@@ -96,7 +96,6 @@
         <h2>Trending</h2>
     </div>
 
-    <div class="stage">
             
         <% @playlist = [] %>
             <% @feed_items.each_with_index do |p,i| %>
@@ -108,10 +107,12 @@
 
             <% if @count>0 && @latestpost.yt? %>
 
+                <div class="gem-wrapper">
+
                  <section class="gem">
                      
                             
-                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" width="540" height="304" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
 
@@ -140,10 +141,11 @@
                         </div>
 
                     </section>
-                </section>
+                 </section>
 
-                <% end %>
-    </div>
+                </div>
+
+            <% end %>
 
     <div class="chest">
         <% if @count>0 %>

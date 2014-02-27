@@ -18,7 +18,6 @@ module ApplicationHelper
      background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(#{@user.wallpaper});
      background-size: cover;
      background-position: center;
-     height: 100%;
-     width: 35%;"
+     height: 100%;"
   end
 end
