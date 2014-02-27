@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 		params.require(:post).permit(:title, 
 	  								 :artist, 
 	  								 :link,
-                                     :soundcloud) 
+	  								 :blurb) 
 	end
 
 end
