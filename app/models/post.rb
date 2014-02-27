@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
 	end
 
 	def yt?
-  		self.link.include?("youtube.com") || self.link.include?("www.youtube.com") || self.link.include?("http://youtu.be")
+  		self.start_with?("youtube.com") || self.link.include?("www.youtube.com") || self.link.include?("http://youtu.be")
   	end
 
 	def ytcode
