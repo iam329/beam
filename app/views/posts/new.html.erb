@@ -1,13 +1,12 @@
 <% provide(:title, 'New Episode') %>
 
 <div class="user-forms ">
+
 	<div id="episode">
-	    <nav>
-	    	<ul class="nav nav-pills pull-left">
-	        	<li><%= link_to "Home", root_path %></li> 	
-	         </ul>
-	   		 
-	     </nav>
+
+	    <div class="close-nav">
+        	<%= link_to_function(image_tag(asset_path("icon_close.svg"), size:"25x25"), "history.back()") %>
+    	</div>
 	  
 		<div class="center">
 

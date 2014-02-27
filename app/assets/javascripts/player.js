@@ -55,10 +55,14 @@ function onPlayerReady(event) {
 };
 
 function changeStageInfo(gem) {
+
+
 	$(".track-info").find("#track-title").find("h4").text(gem.getAttribute("title"));
 	//window.alert(gem.artist);
     $(".track-info").find("#artist-name").text(gem.getAttribute("artist"));
     $(".track-info").find("#timestamp").find("#username").find("a").text(gem.getAttribute("user"));
+    $(".track-info").find("#timestamp").find("#username").find("a").attr("href", "/"+gem.getAttribute("user"));
+    $(".track-info").find("#blurb").text(gem.getAttribute("blurb"));
     $(".track-info").find("#timestamp").find("#time").text("Posted "+gem.getAttribute("created")+ " ago by ");
     $(".track-info").find("#profile-photo").find("img").attr("src", gem.getAttribute("photo"));
 
