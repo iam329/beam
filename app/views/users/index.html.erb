@@ -139,7 +139,15 @@
 
 					<div>
 						<p><%= f.bio %></p>
-					</div>					
+					</div>		
+
+					<div id="index-follow-button">
+            			<% unless f == @user %>
+                			<% if @user.following?(f) %>
+								Following	
+                			<% end %>
+            			<% end %>
+        </div>			
 
 				</div>
 			</li>
