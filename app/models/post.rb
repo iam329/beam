@@ -19,10 +19,10 @@ class Post < ActiveRecord::Base
 	end
 
 	def yt?
-  		self.start_with?("youtube.com") || self.link.include?("www.youtube.com") || self.link.include?("http://youtu.be")
+  		self.link.start_with?("youtube.com") || self.link.include?("www.youtube.com") || self.link.include?("http://youtu.be")
   	end
 
 	def ytcode
-    	self.link.split('=')[1]
+    	self.link[/(?<=[?&]v=)[^&$]+/]
   	end
 end
