@@ -1,7 +1,12 @@
 <% provide(:title, "Update Profile") %>
 
 <div class="user-forms">
+
 	<div id="signup">
+
+        <div class="close">
+                <%= link_to_function(image_tag(asset_path("icon_close.svg"), size:"25x25"), "history.back()") %>
+        </div>
 
 		<div class="center">
 
@@ -24,19 +29,21 @@
                 </div>
 
                 <div class="form-divider">
-                	<%= f.file_field :photo, placeholder: "Profile Photo" %>
-                </div>
-
-                <div class="form-divider">
-                	<%= f.file_field :wallpaper, placeholder: "Wallpaper Photo" %>
-                </div>
-
-                <div class="form-divider">
                 	<%= f.password_field :password, placeholder: "Password" %>
                 </div>
 
                 <div class="form-divider">
                 	<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+                </div>
+
+                <div class="form-divider">
+
+                    <div class="overlay_button">
+                        <img id="profile" src= <%= asset_path("settings_profile.svg") %> alt="Profile Picture" height="130" width="130">
+                        <img id="cover" src= <%= asset_path("settings_cover.svg") %> alt="Cover Photo" height="130" width="130">
+                    </div>
+                    <%= f.file_field :photo, placeholder: "Profile Photo", id: "profile_field" %>
+                    <%= f.file_field :wallpaper, placeholder: "Wallpaper Photo" %>
                 </div>
 
                 <%= f.submit "Let's Go!" %>

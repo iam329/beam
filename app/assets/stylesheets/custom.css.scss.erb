@@ -29,6 +29,7 @@ textarea {
 }
 
 .center {
+  padding-top: 5%;
   text-align: center;
 }
 
@@ -135,6 +136,25 @@ p {
 
   .form-divider {
     padding: 10px 0 10px 0;
+
+    .overlay_button {
+      position: absolute;
+      margin-left: -130px;
+      left:50%;
+    }
+  }
+
+  input[type='file'] {
+    opacity: 0;
+    height: 130px;
+    width: 130px;
+    border:none;
+    border-radius: 5px;
+    background-color:rgba(0, 0, 0, 0.25);
+    color: #fafafa;
+    font-size: 2em;
+    font-weight: 100;
+    line-height: 100%;
   }
 
   form input[type=submit] {
@@ -239,6 +259,10 @@ p {
 }
 
 /* NAV */
+
+.close {
+  padding: 20px;
+}
 
 .nav-pills {
 
