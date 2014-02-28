@@ -20,7 +20,11 @@
 		<div class="center profile-hero">	
 
 			<div id="profile-photo">
-				<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+				<% if @user.photo? %>
+					<%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+            	<% else %>
+					<%= image_tag asset_path('default_profile.svg'), size: "120x120", class: "img-circle" %>
+				<% end %>
 			</div>	
 
 			<div id="username">
@@ -108,7 +112,7 @@
 <div class="users">
 
 	<div>
-		<h2>Followers</h2>
+		<h3>Followers</h3>
 	</div>
 
 	<ul>
@@ -118,7 +122,11 @@
 				<div>
 					
 					<div id="follow-photo"> 
-						<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
+						<% if f.photo? %>
+							<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
+            			<% else %>
+							<%= link_to image_tag(asset_path('default_profile.svg'), size: "75x75", class: "img-circle"), profile_path(f.name) %>
+						<% end %>
 					</div>
 
 					<div id="follow-name">

@@ -20,7 +20,11 @@
     <div class="center profile-hero">
 
         <div id="profile-photo">
-            <%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+            <% if @user.photo? %>
+                    <%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+                <% else %>
+                    <%= image_tag asset_path('default_profile.svg'), size: "120x120", class: "img-circle" %>
+            <% end %>
         </div>
 
         <div id="username">
@@ -114,7 +118,7 @@
     </div>
 
     <div id="latest-episode">
-        <h2>Collection</h2>
+        <h3>Collection</h3>
     </div>
 
     
