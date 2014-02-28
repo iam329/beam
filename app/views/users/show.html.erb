@@ -94,6 +94,12 @@
             </a>
 
         </div>
+    <% else %>
+        <div class="center menu">
+            <a href=<%= root_path %>>
+                <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
+            </a>
+        </div>
     <% end %>
     </div>
 
@@ -108,7 +114,7 @@
     </div>
 
     <div id="latest-episode">
-        <h2>Episodes</h2>
+        <h2>Collection</h2>
     </div>
 
     
@@ -124,7 +130,7 @@
         <div class="gem-wrapper">
                 <section class="gem">
                 
-                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "https://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
                     <section class="track-info">

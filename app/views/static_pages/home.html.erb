@@ -16,7 +16,7 @@
                 </div>
 
                 <div id="slogan">
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Music that matters</p>
                 </div>
 
                 <div id="button">
@@ -58,13 +58,19 @@
                 </div>
 
                 <div id="slogan">
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Music that matters</p>
                 </div>
 
                 <div id="button">
                     <%= button_to "Sign Up Now", signup_path, id:"new-action", method: "get" %>
                 </div>
 
+            </div>
+
+            <div class="center menu">
+                <a href=<%= root_path %>>
+                    <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
+                </a>
             </div>
 
         <% end %>
@@ -110,9 +116,8 @@
                 <div class="gem-wrapper">
 
                  <section class="gem">
-                     
                             
-                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "https://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
 
