@@ -67,6 +67,12 @@
 
             </div>
 
+            <div class="center menu">
+                <a href=<%= root_path %>>
+                    <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
+                </a>
+            </div>
+
         <% end %>
 
     </div>
@@ -93,7 +99,7 @@
     </div>
 
     <div id="latest-episode">
-        <h2>Trending</h2>
+        <h3>Trending</h3>
     </div>
 
             
@@ -110,9 +116,8 @@
                 <div class="gem-wrapper">
 
                  <section class="gem">
-                     
                             
-                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "https://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
 
@@ -133,7 +138,11 @@
                         </div>
 
                         <div id="profile-photo">
-                            <%= image_tag @latestpost.user.photo.url, size:"50x50", class: "img-circle" %>
+                            <% if @latestpost.user.photo? %>
+                                <%= link_to image_tag(@latestpost.user.photo.url, size: "50x50", class: "img-circle"), profile_path(@latestpost.user.name) %> 
+                            <% else %>
+                                <%= link_to image_tag(asset_path('default_profile.svg'), size: "50x50", class: "img-circle"), profile_path(@latestpost.user.name) %>
+                            <% end %>
                         </div>
 
                         <div id="timestamp">
@@ -177,7 +186,11 @@
                                         </span>
                                     </div>
 
-                                    <%= image_tag p.user.photo.url, size:"30x30", class: "img-circle" %>
+                                    <% if p.user.photo? %>
+                                        <%= image_tag(p.user.photo.url, size: "30x30", class: "img-circle") %> 
+                                    <% else %>
+                                        <%= image_tag(asset_path('default_profile.svg'), size: "30x30", class: "img-circle") %>
+                                    <% end %>
 
                                 </div>
 
