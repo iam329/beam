@@ -169,7 +169,14 @@
 
                         <% if p.yt? %>
 
-                            <button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%= ep %>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= p.user.photo.url %>" user="<%= p.user.name %>" track="<%= i %>">
+                            <% @profile_pic %>
+                            <% if p.user.photo? %>
+                                <% @profile_pic = p.user.photo.url %>
+                            <% else %>
+                                <% @profile_pic = asset_path('default_profile.svg') %>
+                            <% end %>
+
+                            <button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%= ep %>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= @profile_pic %>" user="<%= p.user.name %>" track="<%= i %>">
 
                                 <div id="thumb-photo">
                                     <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
