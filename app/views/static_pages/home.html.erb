@@ -167,7 +167,60 @@
             <% end %>
 
     <div class="chest">
-        <% if @count>0 %>
+        <% if @count>0 && @count<4 %>
+
+            <ul >
+                <% @feed_items.each_with_index do |p,i|  %>
+
+                <% ep = @count-i %>
+
+                <li>
+                    <div class="episode">
+
+                        <% if p.yt? %>
+
+                            <% @profile_pic %>
+                            <% if p.user.photo? %>
+                                <% @profile_pic = p.user.photo.url %>
+                            <% else %>
+                                <% @profile_pic = asset_path('default_profile.svg') %>
+                            <% end %>
+
+                            <button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%= ep %>" created="<%= time_ago_in_words(p.created_at) %>" photo="<%= @profile_pic %>" user="<%= p.user.name %>" track="<%= i %>">
+
+                                <div id="thumb-photo">
+                                    <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
+                                </div>
+
+                                <div class="info-box">
+                                    <div id="thumb-title">
+                                        <%= p.title %>
+                                    </div>
+
+                                    <div id="thumb-artist">
+                                        <span>
+                                            <%= p.artist %>
+                                        </span>
+                                    </div>
+
+                                    <% if p.user.photo? %>
+                                        <%= link_to image_tag(p.user.photo.url, size: "30x30", class: "img-circle"), profile_path(p.user.name) %> 
+                                    <% else %>
+                                        <%= link_to image_tag(asset_path('default_profile.svg'), size: "30x30", class: "img-circle"), profile_path(p.user.name) %>
+                                    <% end %>
+
+                                </div>
+
+                            </button>
+                        <% end %>
+
+                        </div>
+                </li>
+
+                <% end %>
+            </ul>
+
+        <% elsif @count > 3 %>
 
             <ul class="center">
                 <% @feed_items.each_with_index do |p,i|  %>
@@ -219,6 +272,7 @@
 
                 <% end %>
             </ul>
+
         <% end %>
     </div>
 </div>
