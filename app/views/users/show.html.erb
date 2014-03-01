@@ -151,7 +151,15 @@
                         </div>
 
                         <div id="blurb">
-                            <%= @latestpost.blurb %>
+                            <span id="blurb-text">
+                                <%= @latestpost.blurb %>
+                            </span>
+                            <span style="color:white" id="blurb-fill">
+                                <script>
+                                    var fill = generateBlurbFill("<%= @latestpost.blurb %>");
+                                    document.write(fill);
+                                </script>
+                            </span>
                         </div>
 
                         <div id="info-footer">
