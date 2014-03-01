@@ -20,7 +20,11 @@
     <div class="center profile-hero">
 
         <div id="profile-photo">
-            <%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+            <% if @user.photo? %>
+                <%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
+            <% else %>
+                <%= image_tag asset_path('default_profile.svg'), size: "120x120", class: "img-circle" %>
+            <% end %>
         </div>
 
         <div id="username">
@@ -94,6 +98,12 @@
             </a>
 
         </div>
+    <% else %>
+        <div class ="center menu">
+            <a href= <%= root_path %> >
+                <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
+            </a>
+        </div>
     <% end %>
     </div>
 
@@ -141,7 +151,15 @@
                         </div>
 
                         <div id="blurb">
-                            
+                            <span id="blurb-text">
+                                <%= @latestpost.blurb %>
+                            </span>
+                            <span style="color:white" id="blurb-fill">
+                                <script>
+                                    var fill = generateBlurbFill("<%= @latestpost.blurb %>");
+                                    document.write(fill);
+                                </script>
+                            </span>
                         </div>
 
                         <div id="info-footer">
@@ -150,7 +168,7 @@
                             </span>
 
                             <span id="share">
-                                <%= social_share_button_tag("Tonic", :url => profile_path(@user.name)) %>
+                                
                             </span>
                         </div>    
 

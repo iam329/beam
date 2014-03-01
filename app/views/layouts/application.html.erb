@@ -10,6 +10,26 @@
   
   <link href='http://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
+
+  <!-- Script to fix Blurb -->
+  <script>
+  function generateBlurbFill(text) {
+            console.log("here");
+            var textLength = text.length;
+            var fill = "";
+            if (textLength < 140) {
+                var spaces = 140-textLength;
+                for(var i=0; i<spaces; i++) {
+                    fill += "-";
+                }
+            }
+            else {
+                return;
+            }
+            return fill;
+        };
+  </script>
+
 </head>
 <body>
 		<%= yield %>	
