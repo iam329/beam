@@ -1,6 +1,17 @@
 <% provide(:title, @user.name) %>
 
-<div id="profile-wall-wrapper" style="<%= show_user_bg %>">
+<% if @user.wallpaper? %>
+    <div id="profile-wall-wrapper" style="<%= show_user_bg %>">
+<% else %>
+    <div id="profile-wall-wrapper" style="background-image: url(<%= asset_path('mic.jpg') %>);
+                                          min-height: 100%;
+                                          width: 35%;
+                                          float: left;
+                                          position: fixed;
+                                          background-image: url(<%= asset_path('mic.jpg') %>);
+                                          background-size: cover;
+                                          background-position: center;">
+<% end %>
 	<div class="profile-wall fixed">
 
 		<% if signed_in? %>
