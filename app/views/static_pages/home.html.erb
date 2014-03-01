@@ -145,7 +145,7 @@
                             <span id="blurb-text">
                                 <%= @latestpost.blurb %>
                             </span>
-                            <span style="color:white" id="blurb-fill">
+                            <span style="color:black" id="blurb-fill">
                                 <script>
                                     var fill = generateBlurbFill("<%= @latestpost.blurb %>");
                                     document.write(fill);
@@ -202,7 +202,7 @@
 
                                 <div class="info-box">
                                     <div id="thumb-title">
-                                        <%= p.title %>
+                                        <%= truncate(p.title, :length => 24) %>
                                     </div>
 
                                     <div id="thumb-artist">
