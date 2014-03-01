@@ -24,7 +24,6 @@ $(document).ready(function() {
             changeStageInfo(this);
 		    player.playVideoAt(track);
         });
-      
 });
 
 // Ran asychronously with the script in home
@@ -61,13 +60,17 @@ function changeStageInfo(gem) {
     $(".track-info").find("#artist-name").text(gem.getAttribute("artist"));
     $(".track-info").find("#timestamp").find("#username").find("a").text(gem.getAttribute("user"));
     $(".track-info").find("#timestamp").find("#username").find("a").attr("href", "/"+gem.getAttribute("user"));
-    $(".track-info").find("#blurb").text(gem.getAttribute("blurb"));
     $(".track-info").find("#timestamp").find("#time").text("Posted "+gem.getAttribute("created")+ " ago by ");
     $(".track-info").find("#profile-photo").find("img").attr("src", gem.getAttribute("photo"));
     $(".track-info").find("#profile-photo").find("a").attr("href", "/"+gem.getAttribute("user"));
 
     if(gem.getAttribute("episode"))
         $(".track-info").find("#episode-number").text("Episode "+gem.getAttribute("episode"));
+
+    $(".track-info").find("#blurb").find("#blurb-text").text(gem.getAttribute("blurb"));
+    var fill = generateBlurbFill(gem.getAttribute("blurb"));
+    $(".track-info").find("#blurb").find("#blurb-fill").text(fill);
+
 };
 
 function turnOnButton(gem) {

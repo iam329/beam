@@ -56,7 +56,7 @@
                     <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
                 </a>
             </div>
-            
+
             <div class="center home-hero">
 
                 <div id="home-title">
@@ -135,7 +135,15 @@
                         </div>
 
                         <div id="blurb">
-                            <%= @latestpost.blurb %>
+                            <span id="blurb-text">
+                                <%= @latestpost.blurb %>
+                            </span>
+                            <span style="color:white" id="blurb-fill">
+                                <script>
+                                    var fill = generateBlurbFill("<%= @latestpost.blurb %>");
+                                    document.write(fill);
+                                </script>
+                            </span>
                         </div>
 
                         <div id="profile-photo">
