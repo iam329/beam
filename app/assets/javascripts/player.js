@@ -56,7 +56,6 @@ function onPlayerReady(event) {
 
 function changeStageInfo(gem) {
 
-
 	$(".track-info").find("#track-title").find("h4").text(gem.getAttribute("title"));
 	//window.alert(gem.artist);
     $(".track-info").find("#artist-name").text(gem.getAttribute("artist"));
@@ -65,6 +64,7 @@ function changeStageInfo(gem) {
     $(".track-info").find("#blurb").text(gem.getAttribute("blurb"));
     $(".track-info").find("#timestamp").find("#time").text("Posted "+gem.getAttribute("created")+ " ago by ");
     $(".track-info").find("#profile-photo").find("img").attr("src", gem.getAttribute("photo"));
+    $(".track-info").find("#profile-photo").find("a").attr("href", "/"+gem.getAttribute("user"));
 
     if(gem.getAttribute("episode"))
         $(".track-info").find("#episode-number").text("Episode "+gem.getAttribute("episode"));
