@@ -74,7 +74,7 @@ function turnOnButton(gem) {
     // Turn on Button
     gem.style.opacity = 1.0;
     //gem.style.filter = alpha(opacity=100);
-    gem.style.text-decoration = none;
+
 }
 
 function turnOffButton(gem) {
