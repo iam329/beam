@@ -71,6 +71,12 @@
                     <%= button_to "Sign Up Now", signup_path, id:"new-action", method: "get" %>
                 </div>
 
+                <div id="about">
+                    <a href= "<%= about_path %>" >
+                        How it works?
+                    </a>
+                </div>
+
             </div>
 
         <% end %>
@@ -249,7 +255,7 @@
 
                                 <div class="info-box">
                                     <div id="thumb-title">
-                                        <%= p.title %>
+                                        <%= truncate(p.title, :length => 24) %>
                                     </div>
 
                                     <div id="thumb-artist">
