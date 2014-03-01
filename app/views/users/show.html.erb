@@ -20,11 +20,7 @@
     <div class="center profile-hero">
 
         <div id="profile-photo">
-            <% if @user.photo? %>
-                    <%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
-                <% else %>
-                    <%= image_tag asset_path('default_profile.svg'), size: "120x120", class: "img-circle" %>
-            <% end %>
+            <%= image_tag @user.photo.url, size: "120x120", class: "img-circle" %>
         </div>
 
         <div id="username">
@@ -98,12 +94,6 @@
             </a>
 
         </div>
-    <% else %>
-        <div class="center menu">
-            <a href=<%= root_path %>>
-                <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
-            </a>
-        </div>
     <% end %>
     </div>
 
@@ -134,7 +124,7 @@
         <div class="gem-wrapper">
                 <section class="gem">
                 
-                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "https://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
+                    <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
 
                     <section class="track-info">
@@ -151,7 +141,7 @@
                         </div>
 
                         <div id="blurb">
-                            <%= @latestpost.blurb %>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
                         </div>
 
                         <div id="info-footer">
@@ -160,21 +150,7 @@
                             </span>
 
                             <span id="share">
-                                <!-- Facebook Share Button -->
-                                <div id="fb-root"></div>
-                                <script>(function(d, s, id) {
-                                    var js, fjs = d.getElementsByTagName(s)[0];
-                                    if (d.getElementById(id)) return;
-                                    js = d.createElement(s); js.id = id;
-                                    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-                                    fjs.parentNode.insertBefore(js, fjs);
-                                    }(document, 'script', 'facebook-jssdk'));
-                                </script>
-                                <div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-width="56" data-type="button"></div>
-
-                                <!-- Twitter Share Button -->
-                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                                <a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="small" data-count="none"></a>
+                                <%= social_share_button_tag("Tonic", :url => profile_path(@user.name)) %>
                             </span>
                         </div>    
 
