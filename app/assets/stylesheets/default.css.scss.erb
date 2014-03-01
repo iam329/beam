@@ -447,6 +447,7 @@
 
           .track-info {
 
+            position: relative;
             background: black;
             padding-left: 20px;
             padding-right: 20px;
@@ -456,7 +457,6 @@
             #track-title {
 
               h4 {
-                padding-top: 10px;
                 color: #24c0ab;
                 font-weight: 300;
                 margin-bottom: 2px;
@@ -473,44 +473,49 @@
               color: $grayLight;
             }
 
-            #profile-photo {
-              padding-top: 15px;
+            #info-footer {
+              position: absolute;
+              bottom: 5px;
 
-              img {
-                  float: left;
-              }
+              #profile-photo {
+                padding-top: 15px;
 
-              .img-circle {
-                    width: 40px;
-                    height: 40px;
-                    border: 2px solid #eaeaea;
-              }
-            }
-
-            #timestamp {
-
-              padding-top: 5px;
-
-                span {
-                  display:inline-block;
-                  padding-left: 5px;
+                img {
+                    float: left;
                 }
 
-                padding-left: 8px;
-                font-size: 11px;
+                .img-circle {
+                      width: 40px;
+                      height: 40px;
+                      border: 2px solid #eaeaea;
+                }
+              }
 
-              #username {
-                
-                a {
-                  color: #eaeaea;
+              #timestamp {
 
-                  &:hover {
-                    text-decoration: none;
-                    color: #24c0ab;
+                padding-top: 5px;
+
+                  span {
+                    display:inline-block;
+                    padding-left: 5px;
+                  }
+
+                  padding-left: 8px;
+                  font-size: 11px;
+
+                #username {
+                  
+                  a {
+                    color: #eaeaea;
+
+                    &:hover {
+                      text-decoration: none;
+                      color: #24c0ab;
+                    }
                   }
                 }
               }
-            }
+            }  
           }
         }
     }
@@ -869,6 +874,7 @@
 
         .track-info {
 
+          position: relative;
           background: black;
           padding-left: 20px;
           padding-right: 20px;
@@ -876,7 +882,6 @@
           text-align: left;
 
           #episode-number {
-            padding-top: 20px;
             color: #b3b3b1;
             font-weight: 300;
             font-size: 11px;
@@ -903,6 +908,8 @@
           }
 
           #info-footer {
+            position: absolute;
+            bottom: 5px;
 
             padding-top: 10px;
 

@@ -147,18 +147,20 @@
                             </span>
                         </div>
 
-                        <div id="profile-photo">
-                            <% if @latestpost.user.photo? %>
-                                <%= link_to image_tag(@latestpost.user.photo.url, size: "50x50", class: "img-circle"), profile_path(@latestpost.user.name) %> 
-                            <% else %>
-                                <%= link_to image_tag(asset_path('default_profile.svg'), size: "50x50", class: "img-circle"), profile_path(@latestpost.user.name) %>
-                            <% end %>
-                        </div>
+                        <div id="info-footer">
+                            <div id="profile-photo">
+                                <% if @latestpost.user.photo? %>
+                                    <%= link_to image_tag(@latestpost.user.photo.url, size: "50x50", class: "img-circle"), profile_path(@latestpost.user.name) %> 
+                                <% else %>
+                                    <%= link_to image_tag(asset_path('default_profile.svg'), size: "50x50", class: "img-circle"), profile_path(@latestpost.user.name) %>
+                                <% end %>
+                            </div>
 
-                        <div id="timestamp">
-                            <span id="time">Posted <%= time_ago_in_words(@latestpost.created_at) %> ago by</span> <span id="username"><%= link_to @latestpost.user.name, profile_path(@latestpost.user.name) %></span>
-                        </div>
-
+                            <div id="timestamp">
+                                <span id="time">Posted <%= time_ago_in_words(@latestpost.created_at) %> ago by</span> <span id="username"><%= link_to @latestpost.user.name, profile_path(@latestpost.user.name) %></span>
+                            </div>
+                        </div> 
+                           
                     </section>
                  </section>
 
