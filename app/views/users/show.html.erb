@@ -141,7 +141,7 @@
                         </div>
 
                         <div id="blurb">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut
+                            <%= @latestpost.blurb %>
                         </div>
 
                         <div id="info-footer">
@@ -149,9 +149,6 @@
                                 <%= time_ago_in_words(@latestpost.created_at) %> ago
                             </span>
 
-                            <span id="share">
-                                <%= social_share_button_tag("Tonic", :url => profile_path(@user.name)) %>
-                            </span>
                         </div>    
 
                     </section>
