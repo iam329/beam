@@ -29,6 +29,7 @@ $(document).ready(function() {
 // Ran asychronously with the script in home
 var player;
 function onYouTubePlayerAPIReady() {
+    alert("HELLO");
 	player = new YT.Player('ytplayer', {
     events: {
       'onStateChange': onPlayerStateChange,
