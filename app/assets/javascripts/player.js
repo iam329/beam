@@ -1,4 +1,3 @@
-$(document).ready(function() {
 
         var tag = document.createElement('script');
         tag.src = "http://www.youtube.com/iframe_api";
@@ -25,7 +24,6 @@ $(document).ready(function() {
             changeStageInfo(this);
 		    player.playVideoAt(track);
         });
-});
 
 // Ran asychronously with the script in home
 var player;
