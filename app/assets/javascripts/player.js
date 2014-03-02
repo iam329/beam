@@ -1,9 +1,4 @@
 $(document).ready(function() {
-
-    var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         
         $(".feature").find("button").click(function() {
 
@@ -29,7 +24,6 @@ $(document).ready(function() {
 // Ran asychronously with the script in home
 var player;
 function onYouTubePlayerAPIReady() {
-    alert("HELLO");
 	player = new YT.Player('ytplayer', {
     events: {
       'onStateChange': onPlayerStateChange,
