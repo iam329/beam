@@ -1,4 +1,10 @@
+$(document).ready(function() {
 
+        var tag = document.createElement('script');
+        tag.src = "http://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        console.log("Script ran");
         
         $(".feature").find("button").click(function() {
 
@@ -19,6 +25,7 @@
             changeStageInfo(this);
 		    player.playVideoAt(track);
         });
+});
 
 // Ran asychronously with the script in home
 var player;
