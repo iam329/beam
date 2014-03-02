@@ -10,12 +10,12 @@ module ApplicationHelper
   end
 
   def show_user_bg
-    "background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(#{@user.wallpaper});
-     background-image: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(#{@user.wallpaper});
-     background-image: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(#{@user.wallpaper});
-     background-image: -ms-linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(#{@user.wallpaper});
-     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(0, 0, 0, 0.25))), url(#{@user.wallpaper});
-     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(#{@user.wallpaper});
+    "background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(#{@user.wallpaper});
+     background-image: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(#{@user.wallpaper});
+     background-image: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(#{@user.wallpaper});
+     background-image: -ms-linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(#{@user.wallpaper});
+     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.35)), to(rgba(0, 0, 0, 0.25))), url(#{@user.wallpaper});
+     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(#{@user.wallpaper});
      background-size: cover;
      background-position: center;
      height: 100%;"
