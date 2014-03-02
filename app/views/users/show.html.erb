@@ -8,7 +8,6 @@
                                           width: 35%;
                                           float: left;
                                           position: fixed;
-                                          background-image: url(<%= asset_path('mic.jpg') %>);
                                           background-size: cover;
                                           background-position: center;">
 <% end %>
@@ -52,14 +51,8 @@
             <% end %>
         </div>
 
-        <div>
-            <% unless !signed_in? || current_user == @user %>
-                <% if current_user.following?(@user) %>
-                    <%= render 'unfollow' %>
-                <% else %>
-                    <%= render 'follow' %>
-                <% end %>
-            <% end %>
+        <div id="follow-container">
+            <%= render 'follow_form' %>
         </div>
 
         <div id="profile-stats-posts">
