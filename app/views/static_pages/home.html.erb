@@ -121,6 +121,14 @@
                 <div class="gem-wrapper">
 
                  <section class="gem">
+
+                    <script>
+                    var tag = document.createElement('script');
+        tag.src = "http://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        console.log("Script ran");
+                    </script>
                             
                     <iframe id="ytplayer" name="main-player" class="youtube-player" type="text/html" src=<%= "http://www.youtube.com/embed/"+@latestpost.ytcode+"?playlist="+@playlist.join(',')+"&autoplay=1&controls=1&showinfo=0&autohide=1&iv_load_policy=3&enablejsapi=1&version=3" %> allowfullscreen frameborder="0">
                     </iframe>
