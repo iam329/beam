@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
 	end
 
 	def yt?
-  		self.link.start_with?("youtube.com") || self.link.start_with?("m.youtube.com") || self.link.start_with?("www.youtube.com") || self.link.start_with?("http://youtu.be") || self.link.start_with?("http://m.youtube")
+  		self.link.start_with?("youtube.com") || self.link.start_with?("m.youtube.com") || self.link.start_with?("www.youtube.com") || self.link.start_with?("http://www.youtube.com")  || self.link.start_with?("http://youtu.be") || self.link.start_with?("http://m.youtube")
   	end
 
 	def ytcode
