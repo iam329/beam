@@ -1,5 +1,13 @@
 <script>
 
+$(document).ready(function() {
+        /*
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        */
         $(".feature").find("button").click(function() {
 
             var episode = $(this).attr("episode");
@@ -19,6 +27,13 @@
             changeStageInfo(this);
             player.playVideoAt(track);
         });
+});
+
+var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // Ran asychronously with the script in home
 var player;
@@ -86,11 +101,6 @@ function turnOffAllButtons() {
         turnOffButton(all[i]);
     }
 }
-
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 </script>
 
