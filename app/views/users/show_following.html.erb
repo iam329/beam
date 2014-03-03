@@ -132,7 +132,11 @@
 					</div>
 
 					<div>
-						<p><%= f.bio %></p>
+						<% if f.bio? %>
+							<p><%= f.bio %></p>
+						<% else %>
+							<span style="color: #0f1010"> - </span>
+						<% end %>
 					</div>					
 
 				</div>
