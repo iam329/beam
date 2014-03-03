@@ -8,8 +8,10 @@ $(document).ready(function() {
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         */
-        $(".feature").find("button").click(function() {
 
+        console.log("Loading");
+        $(".feature").find("button").click(function() {
+            console.log("click");
             var episode = $(this).attr("episode");
             $(".track-info").find("#episode-number").text("Episode "+episode);
 
@@ -21,7 +23,7 @@ $(document).ready(function() {
         });
 
         $(".home-feature").find("button").click(function() {
-
+            console.log("click");
             var track = Number($(this).attr("track"));
             //$(".youtube-player").attr("src", vid);
             changeStageInfo(this);
