@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
        if @user.save
            sign_in @user
-           
            redirect_to profile_path(@user.name)
        else
            render 'new'
