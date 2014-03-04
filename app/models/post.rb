@@ -23,6 +23,13 @@ class Post < ActiveRecord::Base
   	end
 
 	def ytcode
-    	self.link[/(?<=[?&]v=)[^&$]+/]
+		if self.link.include?("youtu.be") && self.link.include?("://")
+			self.link.split('/')[3]
+		elsif self.link.include?("youtu.be")
+			self.link.split('/')[1]
+		else
+    		self.link[/(?<=[?&]v=)[^&$]+/]
+    	end
   	end
 end
+
