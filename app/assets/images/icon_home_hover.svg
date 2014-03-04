@@ -24,9 +24,9 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8101934"
-     inkscape:cx="-77.262838"
-     inkscape:cy="15.550279"
+     inkscape:zoom="7.2407736"
+     inkscape:cx="45.567894"
+     inkscape:cy="33.095003"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -34,10 +34,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1680"
-     inkscape:window-height="1006"
-     inkscape:window-x="-1"
-     inkscape:window-y="170"
+     inkscape:window-width="1213"
+     inkscape:window-height="938"
+     inkscape:window-x="320"
+     inkscape:window-y="16"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
@@ -58,26 +58,46 @@
      transform="translate(-46.624066,-1963.9458)"
      style="display:inline">
     <path
-       style="fill:none;stroke:#24c0ab;stroke-width:7.28599977000000010;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 50.26157,2009.5871 41.98601,-41.986 41.85722,41.8572"
-       id="path3965"
+       style="fill:#24c0ab;fill-opacity:1;stroke:none"
+       d="m 86.739546,2003.4633 c -4.026508,-2.7325 -5.775447,-5.6807 -5.541797,-9.9738 -0.434602,-5.2897 5.654123,-10.2367 10.687752,-9.9736 4.789714,-0.3394 10.816599,3.7521 11.677359,10.35 -0.31969,3.1877 -1.33196,6.5351 -5.937642,9.4092 -2.765611,0.2785 3.562592,23.2092 5.343872,34.8137 1.70939,0.3024 3.40041,0.6335 3.56258,3.3875 0.1816,4.7074 -10.272975,4.259 -14.64617,4.3281 -4.157342,-0.062 -14.666068,0.03 -14.250335,-4.1399 -0.524685,-1.6932 1.453564,-3.4748 3.760504,-3.9519 1.781293,-11.4163 7.712148,-34.2397 5.343877,-34.2493 z"
+       id="path3049"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="/Users/ZERO/Computing/Resource/Music Beam/Icons/icon_home.png"
-       inkscape:export-xdpi="100"
-       inkscape:export-ydpi="100" />
-    <a
-       transform="translate(814.28571,123.3521)"
-       id="a3970"
-       style="fill:#24c0ab;fill-opacity:1;stroke-width:7.28599977000000010;stroke-miterlimit:4;stroke-dasharray:none">
-      <path
-         inkscape:export-ydpi="100"
-         inkscape:export-xdpi="100"
-         inkscape:export-filename="/Users/ZERO/Computing/Resource/Music Beam/Icons/icon_home.png"
-         sodipodi:nodetypes="cccccccccccccc"
-         inkscape:connector-curvature="0"
-         id="path3967"
-         d="m -722.03813,1854.8099 -30.65236,31.4251 -0.51517,29.1068 c -0.031,4.6875 2.43266,7.5022 7.85628,6.826 l 13.5231,0 0.77275,-20.993 c 0.0942,-5.0337 2.98936,-5.9012 6.43957,-5.6668 l 6.182,0 c 2.97328,-0.5305 6.16868,1.8671 6.05319,6.0532 l 0,20.7354 15.58377,0.2576 c 4.63648,-0.086 6.86888,-1.0303 6.69715,-6.6971 l -0.25758,-29.6221 z"
-         style="fill:#24c0ab;fill-opacity:1;stroke:none" />
-    </a>
+       sodipodi:nodetypes="ccccccccccc" />
+    <path
+       style="fill:none;stroke:#24c0ab;stroke-width:5.58960915000000025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 79.8123,2007.0387 c -7.715226,-7.4066 -7.474959,-20.6197 0.593763,-25.4046"
+       id="path3819"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#24c0ab;stroke-width:5.58960915000000025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 72.489211,1974.4832 c -11.955487,9.6402 -12.3591,26.7423 0,39.3301"
+       id="path3821"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#24c0ab;stroke-width:5.58960915000000025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 64.968201,1967.144 c -16.41258,12.9606 -16.573404,39.2916 0.197922,54.0084"
+       id="path3823"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path3825"
+       d="m 104.67649,2007.2269 c 7.71524,-7.4066 7.47496,-20.6197 -0.59376,-25.4046"
+       style="fill:none;stroke:#24c0ab;stroke-width:5.58960915000000025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path3827"
+       d="m 111.9996,1974.6712 c 11.95547,9.6404 12.3591,26.7425 0,39.3303"
+       style="fill:none;stroke:#24c0ab;stroke-width:5.58960915000000025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path3829"
+       d="m 119.52061,1967.3321 c 16.41257,12.9606 16.5734,39.2917 -0.19793,54.0085"
+       style="fill:none;stroke:#24c0ab;stroke-width:5.58960915000000025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   </g>
 </svg>
