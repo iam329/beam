@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
 
      end
 
-     @feed_items_all = Post.all
+     @feed_items_all = Post.where(user_id: [1,2,3,4,5,6,7,8,9,10])
      @latestpost_all = @feed_items_all.first
      @count_all = @feed_items_all.count
 
