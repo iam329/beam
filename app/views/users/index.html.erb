@@ -129,51 +129,51 @@
 <% end %>
 
 <div>
-<div class="users">
+	<div class="users">
 
-	<div>
-		<h3>User Directory</h3>
-	</div>
+		<div>
+			<h3>User Directory</h3>
+		</div>
 
-	<ul>
-		<% @users.each do |f|  %>
+		<ul>
+			<% @users.each do |f|  %>
 
-			<li>
-				<div>
-					
-					<div id="follow-photo"> 
-						<% if f.photo? %>
-							<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
-            			<% else %>
-							<%= link_to image_tag(asset_path('default_profile.svg'), size: "75x75", class: "img-circle"), profile_path(f.name) %>
-						<% end %>
-					</div>
-
-					<div id="follow-name">
-						<h4><%= link_to f.name, profile_path(f.name) %></h4>
-					</div>
-
+				<li>
 					<div>
-						<% if f.bio? %>
-							<p><%= f.bio %></p>
-						<% else %>
-							<span style="color: #0f1010"> - </span>
-						<% end %>
-					</div>		
+						
+						<div id="follow-photo"> 
+							<% if f.photo? %>
+								<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
+	            			<% else %>
+								<%= link_to image_tag(asset_path('default_profile.svg'), size: "75x75", class: "img-circle"), profile_path(f.name) %>
+							<% end %>
+						</div>
 
-					<div id="index-follow-button">
-            			<% unless f == @user %>
-                			<% if @user.following?(f) %>
-								Following	
-                			<% end %>
-            			<% end %>
-        			</div>			
+						<div id="follow-name">
+							<h4><%= link_to f.name, profile_path(f.name) %></h4>
+						</div>
 
-				</div>
-			</li>
-				
-		<% end %>
-	</ul>
-		
-</div>
+						<div>
+							<% if f.bio? %>
+								<p><%= f.bio %></p>
+							<% else %>
+								<span style="color: #0f1010"> - </span>
+							<% end %>
+						</div>		
+
+						<div id="index-follow-button">
+	            			<% unless f == @user %>
+	                			<% if @user.following?(f) %>
+									Following	
+	                			<% end %>
+	            			<% end %>
+	        			</div>			
+
+					</div>
+				</li>
+					
+			<% end %>
+		</ul>
+			
+	</div>
 </div>

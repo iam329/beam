@@ -109,40 +109,42 @@
 	</div>	
 </div>	
 
-<div class="users">
+<div>
+	<div class="users">
 
-	<h3>Following</h3>
+		<h3>Following</h3>
 
-	<ul>
-		<% @users.each do |f|  %>
+		<ul>
+			<% @users.each do |f|  %>
 
-			<li>
-				<div>
-					
-					<div id="follow-photo"> 
-						<% if f.photo? %>
-							<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
-            			<% else %>
-							<%= link_to image_tag(asset_path('default_profile.svg'), size: "75x75", class: "img-circle"), profile_path(f.name) %>
-						<% end %>
-					</div>
-
-					<div id="follow-name">
-						<h4><%= link_to f.name, profile_path(f.name) %></h4>
-					</div>
-
+				<li>
 					<div>
-						<% if f.bio? %>
-							<p><%= f.bio %></p>
-						<% else %>
-							<span style="color: #0f1010"> - </span>
-						<% end %>
-					</div>					
+						
+						<div id="follow-photo"> 
+							<% if f.photo? %>
+								<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
+	            			<% else %>
+								<%= link_to image_tag(asset_path('default_profile.svg'), size: "75x75", class: "img-circle"), profile_path(f.name) %>
+							<% end %>
+						</div>
 
-				</div>
-			</li>
-				
-		<% end %>
-	</ul>
-		
-</div>
+						<div id="follow-name">
+							<h4><%= link_to f.name, profile_path(f.name) %></h4>
+						</div>
+
+						<div>
+							<% if f.bio? %>
+								<p><%= f.bio %></p>
+							<% else %>
+								<span style="color: #0f1010"> - </span>
+							<% end %>
+						</div>					
+
+					</div>
+				</li>
+					
+			<% end %>
+		</ul>
+			
+	</div>
+</div>	
