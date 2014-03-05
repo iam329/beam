@@ -1,0 +1,45 @@
+<link href='http://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet' type='text/css'>
+
+<div style="background: #0f1010; color: white; text-align: center; padding-left:30px; padding-right:30px">
+
+		<h1 style="padding-top: 15px; padding-bottom: 15px; font-size: 2.7em; color: #24c0ab; border-bottom: 1px solid #5c5c5c;">
+			Stereotonic
+		</h1>
+
+		<div>
+			<h2 style="color: white; top-padding: -15px;">
+				Hi, <%= @target.name %>!
+			</h2>
+		</div>	
+			
+		<div>
+			<h2 style="font-weight: 300; color: $grayLight;">
+				You have a new follower on Stereotonic 
+			</h2>
+		</div>
+		
+		<div style="padding-top: 15px;">
+			<div  >
+	            <% if @follower.photo? %>
+	            	<a href="<%= profile_path(@follower.name) %>">    
+		                <img src="<%= @follower.photo.url %>" style="height: 120px; width: 120px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
+	            	</a>
+	            <% else %>
+	            	<a href="<%= profile_path(@follower.name) %>">
+	                	<img src="/app/assets/images/default_profile.svg" style="height: 120px; width: 120px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
+	                </a>	
+	            <% end %>
+	        </div>
+
+	        <div style="color: white">
+	        	<a href="<%= profile_path(@follower.name) %>" style="text-decoration: none; color: white">
+	            	<h1><%= @follower.name %></h1>
+	            </a>	
+	        </div>
+
+	        <div id="bio" style="padding-top: 5px">
+	            <p><%= @follower.bio %></p>
+	        </div>
+
+		</div>
+</div>	
