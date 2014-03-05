@@ -1,4 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js"></script>
 <script>
 
 $(document).ready(function() {
@@ -181,21 +182,28 @@ function turnOffAllButtons() {
     <% if signed_in? %>
         <div class ="center menu">
 
-            <a href=<%= root_path %>>
+            <a href=<%= root_path %> rel="tooltip" title="Home" class="home_link">
                 <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
             </a>
 
-            <a href=<%= @current_user.name %>>
+            <a href=<%= @current_user.name %> rel="tooltip" title="Profile" class="profile_link">
                 <img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
             </a >
 
-            <a href=<%= users_path %>>
+            <a href=<%= users_path %> rel="tooltip" title="Search" class="search_link">
                 <img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
             </a>
 
-            <a href=<%= edit_user_path(@current_user.id) %>>
+            <a href=<%= edit_user_path(@current_user.id) %> rel="tooltip" title="Settings" class="settings_link">
                 <img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
             </a>
+
+            <script>
+                $('.home_link').tooltip({ placement: 'top'});
+                $('.profile_link').tooltip({ placement: 'top'});
+                $('.search_link').tooltip({ placement: 'top'});
+                $('.settings_link').tooltip({ placement: 'top'});
+            </script>
 
         </div>
     <% else %>
@@ -206,6 +214,10 @@ function turnOffAllButtons() {
         </div>
     <% end %>
     </div>
+
+    <script>
+        $('.home_link').tooltip({ placement: 'top'});
+    </script>
 
 </div>
 
