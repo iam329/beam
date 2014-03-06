@@ -110,6 +110,7 @@ function turnOffAllButtons() {
 
             <div class="login-out">
                 <%= link_to(image_tag(asset_path("icon_logout.svg"), id:"lo"), logout_path, method: "delete", data: { confirm: "Are you sure you want to log out?" }) %>
+                <span id="log-out-tag">Log out</span>
             </div>
 
             <div class="center home-hero">
@@ -159,6 +160,7 @@ function turnOffAllButtons() {
 
             <div class="login-out">
                 <%= link_to(image_tag(asset_path("icon_logout.svg"), id: "li"), signin_path, method: "get") %>
+                <span id="log-in-tag">Log in</span>
             </div>
 
             <div class ="center menu">
