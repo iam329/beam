@@ -306,6 +306,18 @@
       height: 25px;
 
     }
+
+    #log-out-tag {
+      font-family: 'Helvetica';
+      font-size: 8px;
+      color: white;
+    }
+
+    #log-in-tag {
+      font-family: 'Helvetica';
+      font-size: 8px;
+      color: white;
+    }
     
     #lo:hover {
       content:url(<%= asset_path('icon_logout_hover.svg') %>);
@@ -1169,6 +1181,25 @@
       }
 
     }
+
   } 
+
+  /* POPUP TEXT */
+
+  .tooltip.top .tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-bottom: 13px;
+    margin-left: -5px;
+    border-top-color: #000;
+    border-width: 5px 5px 0;
+  }
+  
+  .tooltip-inner {
+    margin-bottom: 13px;
+    color: #fff;
+    background: #000;
+    border: solid 1px #000;
+  }
 
 }

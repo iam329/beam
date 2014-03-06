@@ -13,6 +13,7 @@
 
 			<div class="login-out">
                 <%= link_to(image_tag(asset_path("icon_logout.svg")), logout_path, method: "delete", data: { confirm: "Are you sure you want to log out?" }) %>
+                <span id="log-out-tag">Log out</span>
             </div>
 			
 			<div class="center profile-hero">	
@@ -76,23 +77,30 @@
 
 				<div class ="center menu">
 
-		        	<a href=<%= root_path %>>
-		            	<img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
-		            </a>
+                    <a href=<%= root_path %> rel="tooltip" title="Home" class="home_link">
+                        <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
+                    </a>
 
-		            <a href=<%= @current_user.name %>>
-		            	<img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
-		            </a >
+                    <a href=<%= @current_user.name %> rel="tooltip" title="Profile" class="profile_link">
+                        <img src=<%= asset_path('icon_profile.svg') %> id="icon_profile" />
+                    </a >
 
-		            <a href=<%= users_path %>>
-		            	<img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
-		            </a>
+                    <a href=<%= users_path %> rel="tooltip" title="Search" class="search_link">
+                        <img src=<%= asset_path('icon_search.svg') %> id="icon_search" />
+                    </a>
 
-		            <a href=<%= edit_user_path(@current_user.id) %>>
-		            	<img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
-		            </a>
+                    <a href=<%= edit_user_path(@current_user.id) %> rel="tooltip" title="Settings" class="settings_link">
+                        <img src=<%= asset_path('icon_settings.svg') %> id="icon_settings" />
+                    </a>
 
-		        </div>
+                    <script>
+                        $('.home_link').tooltip({ placement: 'top'});
+                        $('.profile_link').tooltip({ placement: 'top'});
+                        $('.search_link').tooltip({ placement: 'top'});
+                        $('.settings_link').tooltip({ placement: 'top'});
+                    </script>
+
+                </div>
 				
 			</div>
 		</div>	
@@ -105,6 +113,7 @@
 
             <div class="login-out">
                 <%= link_to(image_tag(asset_path("icon_logout.svg")), signin_path, method: "get") %>
+                <span id="log-in-tag">Log in</span>
             </div>
 
             <div class="center home-hero">
