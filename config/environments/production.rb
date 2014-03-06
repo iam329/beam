@@ -79,7 +79,7 @@ MusicblogApp::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   #Action Mailer
-  config.action_mailer.default_url_options = { :host => 'IP ADDRESS HERE:3000' }
+  config.action_mailer.default_url_options = { :host => "stereotonic.co" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              "smtp.zoho.com",
