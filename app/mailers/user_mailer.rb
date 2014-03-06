@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "vinnie329@gmail.com"
+  default from: "hi@stereotonic.co"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -14,6 +14,6 @@ class UserMailer < ActionMailer::Base
   def follower(follower, target)
   	@target = target
   	@follower = follower 
-  	mail to: @target.email, subject: "#{@follower} started following you on Stereotonic"
+  	mail to: @target.email, subject: "#{@follower.name} started following you on Stereotonic"
   end
 end
