@@ -18,27 +18,23 @@
 			</h2>
 		</div>
 		
-		<div style="padding-top: 15px;">
+		<div style="padding-top: 15px; padding-bottom: 15px;">
 			<div  >
 	            <% if @follower.photo? %>
-	            	<a href="<%= profile_path(@follower.name) %>">    
-		                <img src="<%= @follower.photo.url %>" style="height: 120px; width: 120px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
+	            	<a href="<%= profile_url(@follower.name) %>">    
+		                <img src= "<%= @follower.photo.url %>" style="height: 120px; width: 120px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
 	            	</a>
 	            <% else %>
-	            	<a href="<%= profile_path(@follower.name) %>">
-	                	<img src="/app/assets/images/default_profile.svg" style="height: 120px; width: 120px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
+	            	<a href="<%= profile_url(@follower.name) %>">
+	                	<img src= "http://www.stereotonic.co/assets/default_profile-1ac4574a93365280923231bc19aeace8.svg" style="height: 120px; width: 120px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
 	                </a>	
 	            <% end %>
 	        </div>
 
 	        <div style="color: white">
-	        	<a href="<%= profile_path(@follower.name) %>" style="text-decoration: none; color: white">
+	        	<a href="<%= profile_url(@follower.name) %>" style="text-decoration: none; color: white">
 	            	<h1><%= @follower.name %></h1>
 	            </a>	
-	        </div>
-
-	        <div id="bio" style="padding-top: 5px">
-	            <p><%= @follower.bio %></p>
 	        </div>
 
 		</div>
