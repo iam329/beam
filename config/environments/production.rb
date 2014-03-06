@@ -77,4 +77,18 @@ MusicblogApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #Action Mailer
+  config.action_mailer.default_url_options = { :host => 'IP ADDRESS HERE:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.zoho.com",
+    port:                 465,
+    user_name:            'hi@stereotonic.co',
+    password:             'Beambeambeam329',
+    authentication:       'plain',
+    ssl:                  true,
+    tls:                  true,
+    enable_starttls_auto: true  
+  }
 end
