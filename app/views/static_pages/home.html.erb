@@ -128,8 +128,8 @@ function turnOffAllButtons() {
 
                 <div class ="center menu">
 
-                    <a href=<%= root_path %>>
-                        <img src=<%= asset_path('icon_home.svg') %> rel="tooltip" title="Home" class="home_link" id="icon_home" />
+                    <a href=<%= root_path %> rel="tooltip" title="Home" class="home_link">
+                        <img src=<%= asset_path('icon_home.svg') %> id="icon_home" />
                     </a>
 
                     <a href=<%= @current_user.name %> rel="tooltip" title="Profile" class="profile_link">
