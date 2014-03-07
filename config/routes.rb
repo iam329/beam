@@ -1,7 +1,13 @@
 MusicblogApp::Application.routes.draw do
   
-  get "relationships/create"
-  get "relationships/destroy"
+  #created when controller is generated
+  #get "likes/create"
+  #get "likes/destroy"
+  
+  #created when controller is generated
+  #get "relationships/create"
+  #get "relationships/destroy"
+  
   resources :users do
     member do
       get :following, :followers
@@ -13,6 +19,8 @@ MusicblogApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :likes, only: [:create, :destroy]
 
   root to: 'static_pages#home'
   match '/about', to:'static_pages#about', via: 'GET'

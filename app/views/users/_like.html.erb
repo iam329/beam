@@ -1,0 +1,4 @@
+<%= form_for(current_user.likes.build(post_id: @nowplaying.id), remote: true) do |f| %>
+  <div><%= f.hidden_field :post_id %></div>
+  <%= f.submit "Like" %>
+<% end %>

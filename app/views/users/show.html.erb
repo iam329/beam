@@ -281,9 +281,24 @@ function turnOffAllButtons() {
                                 <%= time_ago_in_words(@latestpost.created_at) %> ago
                             </span>
 
-                            <span id="share">
-                                
+                            <span id="like">
+                                <div id="nowplaying">
+                                    <% @nowplaying = @latestpost %>
+                                </div>
+
+                                <% if signed_in? %>
+                                    <%= render 'like_form' %> 
+                                <% end %> 
+
+                                <div id="likers">
+                                    <%= @nowplaying.likers.count %>
+                                </div> 
                             </span>
+
+                            <span id="share">
+
+                            </span>
+
                         </div>    
 
                     </section>
