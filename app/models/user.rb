@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
 
 	has_many :posts, dependent: :destroy
-	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+	
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
 	has_many :followed_users, through: :relationships, source: :followed
 
 	has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
 	has_many :followers, through: :reverse_relationships
+
+  has_many :likes, foreign_key: "user_id", dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
 
 	#As long as there is a password_digest column in the database, this one method gives us a secure way to create and authenticate new users. 				  
 	has_secure_password
@@ -70,6 +74,18 @@ class User < ActiveRecord::Base
 
   def feed
   	Post.from_users_followed_by(self)
+  end
+
+  def like?(post)
+    self.likes.find_by(post_id: post.id)
+  end
+
+  def like!(post)
+    self.likes.create(post_id: post.id)
+  end
+
+  def unlike!(post)
+    self.likes.find_by(post_id: post.id).destroy
   end
 
   private

@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 
 	belongs_to :user
+
+	has_many :reverse_likes, foreign_key: "post_id", class_name: "Like", dependent: :destroy
+	has_many :likers, through: :reverse_likes, source: :user
 	
 	default_scope -> { order('created_at DESC') }
 	
