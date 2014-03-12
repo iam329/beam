@@ -1,0 +1,12 @@
+<script>
+	function unlikeFromPostId() {
+		var trackid = document.getElementById("track-id").getAttribute("postid")
+		var formid = "new_unlike_on_" + trackid;
+		document.getElementById(formid).commit.click();
+	}
+</script>
+
+<a href="javascript:void(0);" onclick="unlikeFromPostId();">
+	<%= image_tag(asset_path("liked_button.svg"), size:"20x20", class:"unlike-button") %>
+</a>
+
