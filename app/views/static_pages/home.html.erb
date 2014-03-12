@@ -279,6 +279,14 @@ function turnOffAllButtons() {
                                 <span id="time">Posted <%= time_ago_in_words(@latestpost.created_at) %> ago by</span> <span id="username"><%= link_to @latestpost.user.name, profile_path(@latestpost.user.name) %></span>
                             </div>
                         </div> 
+                        <div id="interaction">
+                            <span id="like">
+                                <%= image_tag(asset_path("like_button.svg"), size:"20x20", class:"like-button") %>
+                            </span>
+                            <span id="favourite">
+                                <%= image_tag(asset_path("favourite_button.svg"), size:"23x20", class:"favourite-button") %>
+                            </span>
+                        </div>
                            
                     </section>
                  </section>
