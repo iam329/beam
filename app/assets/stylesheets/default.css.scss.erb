@@ -592,8 +592,8 @@
             padding: 0 0 5px 0;
             background: black;
             border: 1px solid #2d2d40;
-
-            border-radius: 8px 8px 8px 8px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
             position: relative;
 
             opacity: 0.60;
@@ -999,8 +999,12 @@
           padding: 0 0 0 0;
           background: black;
           border: 1px solid #2d2d40;
-          border-radius: 10px 10px 10px 10px;
-          position: relative;  
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          position: relative;
+
+          opacity: 0.60;
+          filter: alpha(opacity=50);  
 
           .close {
             position: absolute;
@@ -1008,9 +1012,6 @@
             top: 5px;
             opacity: 0.0; 
           }
-
-          opacity: 0.60;
-          filter: alpha(opacity=50);
 
           &:hover {
             opacity: 1.0 !important;
@@ -1200,6 +1201,46 @@
     color: #fff;
     background: #000;
     border: solid 1px #000;
+  }
+
+  /* LIKE/UNLIKE BUTTON */
+
+  .like-button {
+    form input[type=submit] {
+      background-color: black;
+      color: #b3b3b1;
+      width: 213px;
+      border: 1px solid #2d2d40;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      font-weight: 300;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .unlike-button {
+    form input[type=submit] {
+      background-color: #24c0ab;
+      color: white;
+      width: 213px;
+      border: 1px solid #2d2d40;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      font-weight: 300;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+
+      &:focus {
+        outline: 0;
+      }
+    }
   }
 
 }

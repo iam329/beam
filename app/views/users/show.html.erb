@@ -48,6 +48,7 @@ function onPlayerStateChange(event) {
         turnOffAllButtons();
         // Turn on Button
         turnOnButton(gem);
+
     }
 };
 
@@ -74,6 +75,9 @@ function changeStageInfo(gem) {
     $(".track-info").find("#blurb").find("#blurb-text").text(gem.getAttribute("blurb"));
     var fill = generateBlurbFill(gem.getAttribute("blurb"));
     $(".track-info").find("#blurb").find("#blurb-fill").text(fill);
+
+    $('#like form').attr('action', '/likes/'+gem.getAttribute("episode"));
+    console.log("Likes form")
 
 };
 
@@ -281,24 +285,6 @@ function turnOffAllButtons() {
                                 <%= time_ago_in_words(@latestpost.created_at) %> ago
                             </span>
 
-                            <span id="like">
-                                <div id="nowplaying">
-                                    <% @nowplaying = @latestpost %>
-                                </div>
-
-                                <% if signed_in? %>
-                                    <%= render 'like_form' %> 
-                                <% end %> 
-
-                                <div id="likers">
-                                    <%= @nowplaying.likers.count %>
-                                </div> 
-                            </span>
-
-                            <span id="share">
-
-                            </span>
-
                         </div>    
 
                     </section>
@@ -318,8 +304,7 @@ function turnOffAllButtons() {
 
                 <% if p.yt? %>
 
-                    <button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>">                                        
-
+                    <button id="<%= "button#{i}" %>" class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>" >    
 
                         <div id="thumb-photo">
                             <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
@@ -327,7 +312,8 @@ function turnOffAllButtons() {
                             <% if current_user == p.user %>
                                 <%= link_to(image_tag(asset_path("icon_close.svg"), size:"10x10"), p, method: :delete,
                                      data: { confirm: "Are you sure you want to delete this episode?" }, class: "close" ) %>
-                            <% end %>         
+                            <% end %>  
+
                         </div>
 
                         <div id="thumb-episode-number">
@@ -335,14 +321,29 @@ function turnOffAllButtons() {
                         </div>
 
                         <div id="thumb-title">
-                            <%= p.title %>
+                            <%= truncate(p.title, :length => 33) %>
                         </div>
 
                         <div id="thumb-artist">
-                            <%= p.artist %>
+                            <%= truncate(p.artist, :length => 22) %>
                         </div>
 
                     </button>
+
+                    <div class="like">
+                        <% @nowplaying = p %>
+
+                        <% if signed_in? %>
+                            <div id="like_form<%= p.id %>">
+                              <% if current_user.like?(@nowplaying) %>
+                                <%= render 'users/unlike' , post: @nowplaying %>
+                              <% else %>
+                                <%= render 'users/like' , post: @nowplaying %>
+                              <% end %>
+                            </div>
+                        <% end %> 
+                    </div> 
+
                 <% end %>
 
                 </div>
@@ -363,8 +364,7 @@ function turnOffAllButtons() {
 
                 <% if p.yt? %>
 
-                    <button id= <%= "button#{i}" %> class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>">                                        
-
+                    <button id="<%= "button#{i}" %>" class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>" >    
 
                         <div id="thumb-photo">
                             <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
@@ -372,7 +372,8 @@ function turnOffAllButtons() {
                             <% if current_user == p.user %>
                                 <%= link_to(image_tag(asset_path("icon_close.svg"), size:"10x10"), p, method: :delete,
                                      data: { confirm: "Are you sure you want to delete this episode?" }, class: "close" ) %>
-                            <% end %>         
+                            <% end %>  
+
                         </div>
 
                         <div id="thumb-episode-number">
@@ -384,10 +385,25 @@ function turnOffAllButtons() {
                         </div>
 
                         <div id="thumb-artist">
-                            <%= p.artist %>
+                            <%= truncate(p.artist, :length => 22) %>
                         </div>
 
                     </button>
+
+                    <div class="like">
+                        <% @nowplaying = p %>
+
+                        <% if signed_in? %>
+                            <div id="like_form<%= p.id %>">
+                              <% if current_user.like?(@nowplaying) %>
+                                <%= render 'users/unlike' , post: @nowplaying %>
+                              <% else %>
+                                <%= render 'users/like' , post: @nowplaying %>
+                              <% end %>
+                            </div>
+                        <% end %> 
+                    </div>    
+
                 <% end %>
 
                 </div>

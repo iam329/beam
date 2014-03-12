@@ -1,12 +1,12 @@
 MusicblogApp::Application.routes.draw do
   
   #created when controller is generated
-  #get "likes/create"
-  #get "likes/destroy"
+  get "likes/create"
+  get "likes/destroy"
   
   #created when controller is generated
-  #get "relationships/create"
-  #get "relationships/destroy"
+  get "relationships/create"
+  get "relationships/destroy"
   
   resources :users do
     member do

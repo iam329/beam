@@ -8,7 +8,6 @@ class UsersController < ApplicationController
        if @user
           @posts = @user.posts
           @latestpost = @posts.first
-          @nowplaying = @latestpost
           @count = @posts.count
        else
           redirect_to root_path

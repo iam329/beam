@@ -333,6 +333,21 @@ function turnOffAllButtons() {
                                 </div>
 
                             </button>
+
+                            <div class="like">
+                                <% @nowplaying = p %>
+
+                                <% if signed_in? %>
+                                    <div id="like_form<%= p.id %>">
+                                      <% if current_user.like?(@nowplaying) %>
+                                        <%= render 'users/unlike' , post: @nowplaying %>
+                                      <% else %>
+                                        <%= render 'users/like' , post: @nowplaying %>
+                                      <% end %>
+                                    </div>
+                                <% end %> 
+                            </div>
+
                         <% end %>
 
                         </div>
@@ -386,6 +401,21 @@ function turnOffAllButtons() {
                                 </div>
 
                             </button>
+
+                            <div class="like">
+                                <% @nowplaying = p %>
+
+                                <% if signed_in? %>
+                                    <div id="like_form<%= p.id %>">
+                                      <% if current_user.like?(@nowplaying) %>
+                                        <%= render 'users/unlike' , post: @nowplaying %>
+                                      <% else %>
+                                        <%= render 'users/like' , post: @nowplaying %>
+                                      <% end %>
+                                    </div>
+                                <% end %> 
+                            </div>
+
                         <% end %>
 
                         </div>
