@@ -9,6 +9,9 @@ class LikesController < ApplicationController
       format.html { redirect_to :back }
       format.js
     end
+    if current_user != @nowplaying.user
+      UserMailer.liker(current_user, @nowplaying, @nowplaying.user).deliver
+    end
   end
 
   def destroy
@@ -19,6 +22,4 @@ class LikesController < ApplicationController
       format.js
     end
   end
-
-
 end

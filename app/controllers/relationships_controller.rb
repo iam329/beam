@@ -9,7 +9,7 @@ class RelationshipsController < ApplicationController
       format.html { redirect_to profile_path(@user.name) }
       format.js
     end
-    UserMailer.delay.follower(current_user, @user)
+    UserMailer.follower(current_user, @user).deliver
   end
 
   def destroy

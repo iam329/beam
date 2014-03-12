@@ -14,16 +14,16 @@ class UserMailer < ActionMailer::Base
   def follower(follower, target)
   	@target = target
   	@follower = follower 
-  	mail to: @target.email, subject: "#{@follower.name} started following you on Stereotonic!"
+  	
+    mail to: @target.email, subject: "#{@follower.name} started following you on Stereotonic!"
   end
 
-  # post belongs to the user
-  # liker likes the post that belongs to the user
   def liker(liker, post, user)
     @liker = liker
     @post = post
     @user = user
-    mail to: @user.email, subject: "#{@liker.name} liked your track on Stereotonic!"
+
+    mail to: @user.email, subject: "#{@liker.name} liked your episode on Stereotonic!"
   end
-  
+
 end

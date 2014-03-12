@@ -1,0 +1,60 @@
+<div style="background: #0f1010; color: white; padding-left:30px; padding-right:30px; text-align: center;">
+
+		<h1 style="padding-top: 10px; padding-bottom: 10px; font-size: 2em; font-weight: 300; color: #24c0ab; border-bottom: 1px solid #5c5c5c; font-family: Verdana,sans-serif;">
+			Stereotonic
+		</h1>
+
+		<div>
+			<h3 style="color: white; top-padding: -15px;">
+				Hi, <%= @user.name %>!
+			</h3>
+		</div>
+
+		<div>
+			<h3 style="font-weight: 300; color: $grayLight;">
+				Your Episode got Liked by <a href="<%= profile_url(@liker.name) %>" style="color: #24c0ab; text-decoration: none;"> <%= @liker.name %>!</a>
+			</h3>
+		</div>
+
+		<div style="padding-top: 10px; padding-bottom: 15px;">	
+			<div style="border-bottom: 1px solid #5c5c5c;" >
+				<a href="<%= profile_url(@user.name) %>" style="text-decoration: none;">
+					
+					<div>
+						<%= image_tag "http://img.youtube.com/vi/"+@post.ytcode+"/mqdefault.jpg", size:"211x119" %>
+					</div>	
+					
+					<div style="color: #24c0ab; padding-top: 5px; ">
+						<%= @post.title %>
+					</div>
+					
+					<div style="color: white; padding-bottom: 15px;">	
+						<%= @post.artist %>	
+					</div>	
+				</a>
+			</div>	
+
+	
+			<div style="padding-top: 15px;">	
+			
+				<div>
+		            <% if @liker.photo? %>
+		            	<a href="<%= profile_url(@liker.name) %>">    
+			                <img src= "<%= @liker.photo.url %>" style="height: 30px; width: 30px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
+		            	</a>
+		            <% else %>
+		            	<a href="<%= profile_url(@liker.name) %>">
+		                	<img src= "http://www.stereotonic.co/assets/default_profile-1ac4574a93365280923231bc19aeace8.svg" style="height: 30px; width: 30px; border: 3px solid white; border-radius:50% 50% 50% 50%;">
+		                </a>	
+		            <% end %>
+		        </div>
+
+		        <div style="padding-top: 5px;">
+					Check out 
+						<a href="<%= profile_url(@liker.name) %>" style="color: #24c0ab; text-decoration: none;"> <%= @liker.name %>'s page! </a> 
+				</div>
+
+		    </div>    
+
+		</div>
+</div>	
