@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
   
-	before_action :signed_in_user
+	before_action :signed_in_user 
 
   def create
     @user = User.find(params[:relationship][:followed_id])
@@ -9,7 +9,7 @@ class RelationshipsController < ApplicationController
       format.html { redirect_to profile_path(@user.name) }
       format.js
     end
-    UserMailer.follower(current_user, @user).deliver
+    UserMailer.delay.follower(current_user, @user)
   end
 
   def destroy

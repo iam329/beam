@@ -47,6 +47,9 @@ gem "paperclip", "~> 3.0"
 # AWS
 gem 'aws-sdk', '~> 1.0'
 
+# Delayed Job
+gem 'delayed_job_active_record'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
