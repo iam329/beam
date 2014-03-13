@@ -294,21 +294,22 @@ function turnOffAllButtons() {
 
                         </div> 
 
-                        <div id="interaction">
-                            <span id="current_like">
-                                <% if current_user.like?(@latestpost) %>
-                                    <%= render 'users/current_unlike' %>
-                                <% else %>
-                                    <%= render 'users/current_like' %>
-                                <% end %>
-                            </span>
-                            <!--
-                            <span id="favourite">
-                                <%= image_tag(asset_path("favourite_button.svg"), size:"23x20", class:"favourite-button") %>
-                            </span>
-                            -->
-                        </div>   
-
+                        <% if signed_in? %>
+                            <div id="interaction">
+                                <span id="current_like">
+                                    <% if current_user.like?(@latestpost) %>
+                                        <%= render 'users/current_unlike' %>
+                                    <% else %>
+                                        <%= render 'users/current_like' %>
+                                    <% end %>
+                                </span>
+                                <!--
+                                <span id="favourite">
+                                    <%= image_tag(asset_path("favourite_button.svg"), size:"23x20", class:"favourite-button") %>
+                                </span>
+                                -->
+                            </div>   
+                        <% end %>    
                     </section>
                 </section>
           </div>
