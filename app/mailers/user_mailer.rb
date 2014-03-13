@@ -12,8 +12,8 @@ class UserMailer < ActionMailer::Base
 
   # "user" is the user following the "follower"
   def follower(follower, target)
-  	@target = target
   	@follower = follower 
+    @target = target
   	
     mail to: @target.email, subject: "#{@follower.name} started following you on Stereotonic!"
   end
