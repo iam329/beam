@@ -10,7 +10,7 @@ $(document).ready(function() {
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         
         $(".feature").find("button").click(function() {
-
+            console.log("click");
             var episode = $(this).attr("episode");
             $(".track-info").find("#episode-number").text("Episode "+episode);
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
         });
 
         $(".home-feature").find("button").click(function() {
-
+            console.log("click");
             var track = Number($(this).attr("track"));
             //$(".youtube-player").attr("src", vid);
             changeStageInfo(this);
@@ -76,8 +76,12 @@ function changeStageInfo(gem) {
     var fill = generateBlurbFill(gem.getAttribute("blurb"));
     $(".track-info").find("#blurb").find("#blurb-fill").text(fill);
 
-    $('#like form').attr('action', '/likes/'+gem.getAttribute("episode"));
-    console.log("Likes form")
+    $(".track-info").find("#track-id").attr("postid", gem.getAttribute("postid"));
+    var likeid = "#like_form" + gem.getAttribute("postid");
+    if($(".like").find(likeid).find(".like-button").length)
+        $("#current_like").html("<%= escape_javascript(render('users/current_like')) %>");
+    else
+        $("#current_like").html("<%= escape_javascript(render('users/current_unlike')) %>");
 
 };
 
@@ -256,6 +260,9 @@ function turnOffAllButtons() {
                     </iframe>
 
                     <section class="track-info">
+
+                        <div id="track-id" postid = "<%= @latestpost.id %>"></div>
+
                         <div id="episode-number">
                             Episode <%= @count %>
                         </div>
@@ -285,7 +292,22 @@ function turnOffAllButtons() {
                                 <%= time_ago_in_words(@latestpost.created_at) %> ago
                             </span>
 
-                        </div>    
+                        </div> 
+
+                        <div id="interaction">
+                            <span id="current_like">
+                                <% if current_user.like?(@latestpost) %>
+                                    <%= render 'users/current_unlike' %>
+                                <% else %>
+                                    <%= render 'users/current_like' %>
+                                <% end %>
+                            </span>
+                            <!--
+                            <span id="favourite">
+                                <%= image_tag(asset_path("favourite_button.svg"), size:"23x20", class:"favourite-button") %>
+                            </span>
+                            -->
+                        </div>   
 
                     </section>
                 </section>
@@ -304,7 +326,7 @@ function turnOffAllButtons() {
 
                 <% if p.yt? %>
 
-                    <button id="<%= "button#{i}" %>" class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>" >    
+                    <button id="<%= "button#{i}" %>" class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>" postid = "<%= p.id %>">    
 
                         <div id="thumb-photo">
                             <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
@@ -364,7 +386,7 @@ function turnOffAllButtons() {
 
                 <% if p.yt? %>
 
-                    <button id="<%= "button#{i}" %>" class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>" >    
+                    <button id="<%= "button#{i}" %>" class="menu-item" href="javascript:;" target="main-player" data-remote="true" title="<%= p.title %>" artist="<%= p.artist %>" blurb="<%= p.blurb %>" episode="<%=ep%>" created="<%= time_ago_in_words(p.created_at) %>" track="<%= i %>" postid = "<%= p.id %>">    
 
                         <div id="thumb-photo">
                             <%= image_tag "http://img.youtube.com/vi/"+p.ytcode+"/mqdefault.jpg", size:"211x119" %>
