@@ -1,0 +1,12 @@
+<script>
+	function likeFromPostId() {
+		var trackid = document.getElementById("track-id").getAttribute("postid")
+		var formid = "new_like_on_" + trackid;
+		document.getElementById(formid).commit.click();
+	}
+</script>
+
+<a href="javascript:void(0);" onclick="likeFromPostId();">
+	<%= image_tag(asset_path("like_button.svg"), size:"20x20", class:"like-button") %>
+</a>
+

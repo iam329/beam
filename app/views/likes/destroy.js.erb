@@ -1,1 +1,6 @@
 $("#like_form"+<%= @nowplaying.id %>).html("<%= escape_javascript(render('users/like')) %>")
+
+var current_id = document.getElementById("track-id").getAttribute("postid")
+if(current_id == <%= @nowplaying.id %>)
+	$("#current_like").html("<%= escape_javascript(render('users/current_like')) %>")
+	
