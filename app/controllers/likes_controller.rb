@@ -10,7 +10,7 @@ class LikesController < ApplicationController
       format.js
     end
     if current_user != @nowplaying.user
-      UserMailer.delay.liker(current_user, @nowplaying, @nowplaying.user)
+      UserMailer.liker(current_user, @nowplaying, @nowplaying.user).deliver
     end
   end
 
