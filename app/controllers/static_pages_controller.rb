@@ -13,6 +13,16 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def trending
+    if signed_in?
+      @feed_items = Post.all  
+      @latestpost = @feed_items.first
+      @count = Post.count
+    else     
+      redirect_to root_path
+    end
+  end
+
   def about
   end
 

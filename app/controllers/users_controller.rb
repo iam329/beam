@@ -23,7 +23,8 @@ class UsersController < ApplicationController
 
        if @user.save
            sign_in @user
-           redirect_to profile_path(@user.name)
+           flash[:success]="Follow some other peeps ... it makes the discovery experience way more awesome!"
+           redirect_to users_path
        else
            render 'new'
        end

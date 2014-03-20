@@ -107,7 +107,7 @@ function turnOffAllButtons() {
 
 </script>
 
-<% provide(:title, 'Home') %>
+<% provide(:title, 'Trending') %>
 
 <div id="home-wall-wrapper" >
     <div class="home-wall fixed">
@@ -206,34 +206,16 @@ function turnOffAllButtons() {
 </div>
 
 <div class="home-feature">
-
-    <% if signed_in? %>
-        <% @latestpost = @latestpost_user %>
-        <% @feed_items = @feed_items_user %>
-        <% @count = @count_user %>
-
-    <% else %>
-        <% @latestpost = @latestpost_all %>
-        <% @feed_items = @feed_items_all %>
-        <% @count = @count_all %>
-
-    <% end %>
-        
+    
     <div id="stage-background">
     </div>
 
     <div id="stage-border">
     </div>
 
-    <% if signed_in? %>
         <div >
-            <h3><%= link_to "Feed", root_path, id:"header-tab-on" %> / <%= link_to "Trending", trending_path, id:"header-tab-off" %></h3>
+            <h3><%= link_to "Feed", root_path, id:"header-tab-off" %> / <%= link_to "Trending", trending_path, id:"header-tab-on" %></h3>
         </div>
-    <% else %>
-        <h3 id="header-tab-on">
-            Trending
-        </h3>    
-    <% end %>    
             
         <% @playlist = [] %>
             <% @feed_items.each_with_index do |p,i| %>

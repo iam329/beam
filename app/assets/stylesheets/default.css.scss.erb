@@ -455,13 +455,30 @@
       }
 
     h3 {
-      z-index: 2;
-      
+      z-index: 1000;
       position: fixed;
       padding: 15px 0 0 28px;
       font-weight: 300;
       font-spacing: 0.2em;
       color: #eaeaea;
+    }
+
+    #header-tab-on {
+      color: #24c0ab;
+
+      &:hover {
+        color: #24c0ab;
+        text-decoration: none;
+      }
+    }
+
+    #header-tab-off {
+      color: #eaeaea;
+
+      &:hover {
+        text-decoration: none;
+        color: #24c0ab;
+      }
     }
 
     .gem-wrapper {
@@ -1251,6 +1268,16 @@
         outline: 0;
       }
     }
+  }
+
+  .alert {
+    margin-bottom: 0;
+    border: none;
+  }
+
+  .alert-success {
+    background-color: #24c0ab;
+    color: white;
   }
 
 }

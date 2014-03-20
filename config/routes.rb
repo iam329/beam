@@ -24,7 +24,7 @@ MusicblogApp::Application.routes.draw do
 
   root to: 'static_pages#home'
   match '/about', to:'static_pages#about', via: 'GET'
-  match '/help', to: 'static_pages#help', via: 'GET'
+  match '/trending', to: 'static_pages#trending', via: 'GET'
 
   match '/signin', to: 'sessions#new', via: 'GET'
   match '/logout', to: 'sessions#destroy', via: 'DELETE'
