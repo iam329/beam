@@ -52,7 +52,7 @@
 
 				<div id="profile-stats">
 
-					<a href="<%= profile_path(@user.name) %>">
+					<a href="<%= url_for(@user.name) %>">
 					   <strong class="stat">
 					    <%= @count %>
 					   </strong>
@@ -152,14 +152,14 @@
 						
 						<div id="follow-photo"> 
 							<% if f.photo? %>
-								<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), profile_path(f.name) %>	
+								<%= link_to image_tag(f.photo.url, size: "75x75", class: "img-circle"), url_for(f.name) %>	
 	            			<% else %>
-								<%= link_to image_tag(asset_path('default_profile.svg'), size: "75x75", class: "img-circle"), profile_path(f.name) %>
+								<%= link_to image_tag(asset_path('default_profile.svg'), size: "75x75", class: "img-circle"), url_for(f.name) %>
 							<% end %>
 						</div>
 
 						<div id="follow-name">
-							<h4><%= link_to f.name, profile_path(f.name) %></h4>
+							<h4><%= link_to f.name, url_for(f.name) %></h4>
 						</div>
 
 						<div>
