@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
 
      end
 
-     @feed_items_all = Post.all
+     @feed_items_all = Post.first(200)
      @latestpost_all = @feed_items_all.first
      @count_all = @feed_items_all.count
 
@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
 
   def trending
     if signed_in?
-      @feed_items = Post.all  
+      @feed_items = Post.first(200)  
       @latestpost = @feed_items.first
       @count = Post.count
     else     
